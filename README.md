@@ -1,108 +1,468 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Wedding Website RSVP**
 
-Welcome USER_NAME,
+![Mock up]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## **Goal for this project**
 
-## Gitpod Reminders
+So you're planning your wedding! Congratulations! Did you know that getting married rates in the top 10 of most stressful life events? No? Well you're about to experience it firsthand... 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Take some of the stress out of planning with this easy-to-use, RSVP solution. Get your guests to register their attendance, food options and dietary requirements through a single, user-friendly form integrated with your wedding website. 
 
-`python3 -m http.server`
+Thank you for visiting my project!  
+If you have any feedback or questions, head over to my GitHub contact details and feel free to reach out to me.
 
-A blue button should appear to click: _Make Public_,
+--- 
 
-Another blue button should appear to click: _Open Browser_.
+<a></a>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Table of contents 
+* [UX](#ux)
+    * [User Stories](#user-stories)
+        * [First Time Visitor Goals](#first-time-visitor-goals)
+        * [Returning Visitor Goals](#returning-visitor-goals)
+        * [Frequent Visitor Goals](#frequent-visitor-goals)
+    * [Site Owner Goals](#site-owner-goals)
+    * [User Requirements and Expectations](#user-requirements-and-expectations)
+        * [Requirements](#requirements)
+        * [Expectations](#expectations)
+    * [Design Choices](#design-choices)
+        * [Fonts](#fonts)
+        * [Favicon](#favicon)
+        * [Colours](#colours)
+        * [Structure](#structure)
+        * [Imagery](#imagery)
+* [Wireframes and Flowcharts](#wireframes-and-flowcharts)
+    * [Wireframes](#wireframes)
+    * [Flowcharts](#flowcharts)
+    * [Database Structure](#database-structure)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Future Features](#future-features)
+* [Technologies used](#technologies-used)
+    * [Languages](#languages)
+    * [Libraries and Frameworks](#libraries-and-frameworks)
+    * [Tools](#tools)
+* [Testing](#testing)
+    * [Approach and Tools](#approach-and-tools)
+    * [Validator Testing](#validator-testing)
+    * [Bugs and Solutions](#bugs-and-solutions)
+* [Deployment](#deployment)
+    * [Local Deployment](#local-deployment)
+    * [Heroku Deployment](#heroku-deployment)
+* [Credits](#credits)
 
-A blue button should appear to click: _Make Public_,
+--- 
 
-Another blue button should appear to click: _Open Browser_.
+<a name="ux"></a>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## **UX**
 
-To log into the Heroku toolbelt CLI:
+<a></a>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### **User Stories**
+#### **First Time Visitor Goals**
+* As a first time user, I want to easily understand the purpose of the site.
+* As a first time user, I want to easily understand how to use the site.
+* As a first time user, I want content to load quickly.
+* As a first time user, I want to be able to navigate to the information I need quickly.
+* As a first time user, I want to be able to send my RSVP quickly and easily.
+* As a first time user, I want to know that my RSVP has been received.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+#### **Returning Visitor Goals**
+* As a returning user, I want to be able to easily access and review information I've submitted.
+* As a returning user, I want to be able to make changes to information I've submitted if I need to.
+* As a returning user, I want to be able to RSVP for other guests, e.g. my plus one or family. 
 
-------
+#### **Frequent Visitor Goals**
+* As a frequent user, I want to be able to find key information about the wedding day that I will need, e.g. address, schedule etc.
+* As a frequent user, I want to know who I can contact directly if there is a problem with the RSVP or I need further information.
 
-## Release History
+<a></a>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### **Site Owner Goals**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* To know who will be attending the wedding.
+* To get all guests food options and dietary requirements.
+* To get this information in a timely manner at least 2 weeks before the wedding date - there needs to be a cut off point for editing information.
+* To have this information in an easily exportable and shareable format.
+* To provide guests with information about the wedding. 
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+[Back to Top](#table-of-contents)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<a></a>
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### **User Requirements and Expectations**
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+<a></a>
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### User Requirements
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* Easy to navigate by using the few buttons
+* Easy to use RSVP form
+* Easy way to add another guest
+* Ability to edit and delete existing RSVPs
+* Feedback confirming what information has been submitted
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<a></a>
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+#### User Expectations
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* When you have multiple guests, it should be easy to navigate between them
+* To have a dashboard where all the necessary information is visible
+* It should be easy to add another guest 
+* It should be easy to edit information submitted
+* To be able to search on guest records you've added to edit other guest information
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+[Back to Top](#table-of-contents)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<a></a>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### **Design Choices**
 
-------
+#### *Fonts*
+ 
 
-## FAQ about the uptime script
+#### *Favicon*
 
-**Why have you added this script?**
+        
+#### *Colours*
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+#### *Structure*
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+#### *Imagery*
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Back to Top](#table-of-contents)
 
 ---
 
-Happy coding!
+## **Wireframes and Flowcharts**
+
+### **Wireframes**
+I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
+
+* [Home]()
+* [Wedding Party]()
+
+#### Desktop Wireframes
+* [Dashboard]()
+* [Add Guest]()
+* [Add Food Choices]()
+
+#### Tablet Wireframes
+* [Dashboard]()
+* [Add Guest]()
+* [Add Food Choices]()
+
+#### Mobile Wireframes
+* [Dashboard]()
+* [Add Guest]()
+* [Add Food Choices]()
+
+### **Flowcharts**
+
+I have decided to make a flowchart for the RSVP proccess to completely understand each step of the process.  
+
+I have used [Draw.io](https://draw.io/) to make this flowchart which you can view below: 
+
+[Flowchart]()
+
+### **Database Structure**
+
+I have used MongoDB to set up the database for this project with the following collections: 
+
+#### **Users:**
+
+Key      | Value
+---------|-----------
+_id      | ObjectId
+username | String
+password | String
+
+#### **Guests:**
+
+Key                     | Value
+------------------------|-----------
+_id                     | ObjectId
+user_id                 | String
+guest_name              | String
+guest_email             | String
+attending_ceremony      | Boolean
+attending_reception     | Boolean
+
+#### **Food_Choices:**
+
+Key             | Value
+----------------|-----------
+_id             | ObjectId
+guest_id        | String
+user_id         | String
+starter         | String
+main            | String
+dessert         | String
+dietary_reqs    | String
+
+[Back to Top](#table-of-contents)
+
+---
+
+<a></a>
+
+## **Features**
+
+<a></a>
+
+### **Existing Features**
+
+* Register functionality
+* Log in and out functionality
+* Add multiple guests per user 
+* CRUD Functions:
+    * Create: possibility to add various guests with RSVPs and food choices unique to them
+    * Read: dashboard where you can view the guest information you've submitted
+    * Update: possibility to edit the guest information you've submitted
+    * Delete: possibility to delete the guest information you've submitted
+* Search guests by name
+
+<a></a>
+
+### **Future Features**
+
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+
+## **Technologies used**
+
+<a></a>
+
+### **Languages**
+
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://www.python.org/)
+
+<a></a>
+
+### **Libraries and Frameworks**
+
+* [Font Awesome](https://fontawesome.com/)
+* [Materialize](https://materializecss.com/)
+* [Google Fonts](https://fonts.google.com/)
+* [jQuery](https://jquery.com/)
+
+### **Tools**
+* [Git](https://git-scm.com/)
+* [GitPod](https://www.gitpod.io/)
+* [Heroku](https://www.heroku.com/)
+* [Balsamic](https://balsamiq.com/wireframes/)
+* [W3C HTML Validation Service](https://validator.w3.org/)
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+* [techsini](http://techsini.com/)
+* [MongoDB Atlas](https://www.mongodb.com/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [PyMongo](https://api.mongodb.com/python/current/tutorial.html)
+* [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+
+## **Testing**
+
+<a></a>
+
+### **Approach and Tools**
+
+I deployed my website early which meant I was able to test as I go. I also used Chrome dev tools to test after each change to ensure expectations met reality / intended application.
+
+Once I had the structure in place, I began testing across other devices. I checked features and formatting across an iPhone 7 and iPhone 10 as well as using dev tools and resizing the browser to check responsiveness. I also used a [free responsive test tool](http://responsivetesttool.com/). 
+
+Finally, I asked friends and family to test the website on their devices. I asked them to make a note of anything they found unusual or that they thought was wrong. This proved particularly helpful for user stories and when considering future features.
+
+<a></a>
+
+### **Validator Testing**
+* HTML
+    * No errors were returned when passing through [W3C HTML Validation Service](https://validator.w3.org/)
+
+* CSS
+    * No errors were returned when passing through [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+* JS
+    * No errors were returned when passing through [JShint](https://jshint.com/)
+
+<a></a>
+
+### **Bugs and Solutions**
+
+*Issue*
+
+
+
+*Solution*
+
+
+
+*Issue*
+
+
+
+*Solution*
+
+
+
+*Issue*
+
+
+
+*Solution*
+
+
+
+*Issue*
+
+
+
+*Solution*
+
+
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+
+## **Deployment**
+
+### Local Deployment
+
+I have created the Wedding RSVP project using Github, from there I used [Gitpod](https://gitpod.io/) to write my code. 
+
+Then I used commits to git followed by "git push" to my GitHub repository. 
+
+I've deployed this project to Heroku and used "git push heroku master" to make sure my pushes to GitHub were also made to Heroku. 
+
+This project can be run locally by following the following steps: (I used Gitpod for development, so the following steps will be specific to Gitpod. You will need to adjust them depending on your IDE. You can find more information about installing packages using pip and virtual environments [here](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+
+
+To clone the project: 
+
+1. From the application's repository, click the "code" button and download the zip of the repository.
+    Alternatively, you can clone the repository using the following line in your terminal:
+
+    ``` 
+    git clone https://github.com/bizlett/wedding-rsvp.git
+    ``` 
+
+2. Access the folder in your terminal window and install the application's [required modules](https://github.com/bizlett/wedding-rsvp/blob/master/requirements.txt) using the following command:
+
+    ```
+    pip3 install -r requirements.txt
+    ```
+
+3. Sign-in or sign-up to [MongoDB](https://www.mongodb.com/) and create a new cluster
+    * Within the Sandbox, click the collections button and after click Create Database (Add My Own Data) called wedding_rsvp
+    * Set up the following collections: users, guests and food_choices [Click here to see the exact Database Structure](#database-structure)
+    * Under the Security Menu on the left, select Database Access.
+    * Add a new database user, and keep the credentials secure
+    * Within the Network Access option, add IP Address 0.0.0.0
+
+4. In your IDE, create a file containing your environmental variables called env.py at the root level of the application. 
+    
+    It will need to contain the following lines and variables:
+    ```
+    import os
+
+    os.environ["IP"] = "0.0.0.0"
+    os.environ["PORT"] = "5000"
+    os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"
+    os.environ["DEBUG"] = "True"
+    os.environ["MONGO_URI"] = "YOUR_MONGODB_URI"
+    os.environ["MONGO_DBNAME"]= "DATABASE_NAME" 
+    ```
+
+    Please note that you will need to update the **SECRET_KEY** with your own secret key, as well as the **MONGO_URI** and **MONGO_DBNAME** variables with those provided by MongoDB.
+
+    Tip for your SECRET_KEY, you can use [RandomKeygen](https://randomkeygen.com/) in order to generate a secure secret key. 
+    
+    To find your MONGO_URI, go to your clusters and click on connect. Choose connect your application and copy the link provided. 
+    
+    Don't forget to update the necessary fields like password and database name. 
+
+    If you plan on pushing this application to a public repository, ensure that env.py is added to your .gitignore file.
+
+5. The application can now be run locally. In your terminal, type the following command 
+    ```
+    python3 app.py. 
+    ```
+    
+### To deploy your project on Heroku, use the following steps: 
+
+1. Login to your Heroku account and create a new app. Choose your region. 
+
+2. Ensure the Procfile and requirements.txt files exist are present and up-to-date in your local repository.  
+    Requirements:
+    ```
+    pip3 freeze --local > requirements.txt
+    ```
+    Procfile:
+    ```
+    echo web: python app.py > Procfile
+    ```
+
+3. The Procfile should contain the following line:
+    ```
+    web: python app.py
+    ```
+
+4. Scroll down to "deployment method"-section. Choose "Github" for automatic deployment.
+
+5. From the inputs below, make sure your github user is selected, and then enter the name for your repo. Click "search". When it finds the repo, click the "connect" button.
+
+6. Scroll back up and click "settings". Scroll down and click "Reveal config vars". Set up the same variables as in your env.py (IP, PORT, SECRET_KEY, MONGO_URI and MONGODB_NAME):
+    
+    !You shouldn't set the DEBUG variable in under config vars, only in your env.py to prevent DEBUG being active on live website. 
+
+    ```
+    IP = 0.0.0.0
+    PORT = 5000
+    SECRET_KEY = YOUR_SECRET_KEY
+    MONGO_URI = YOUR_MONGODB_URI
+    MONGO_DBNAME = DATABASE_NAME
+    ```
+
+7. Scroll back up and click "Deploy". Scroll down and click "Enable automatic deployment".
+
+8. Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
+
+9. In order to commit your changes to the branch, use git push to push your changes. 
+    
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+
+## **Credits**
+
+<a></a>
+
+### **Code**
+
+
+<a></a>
+
+### **Media**
+
+
+<a></a>
+
+### **Acknowledgements**
+
+
+[Back to Top](#table-of-contents)
