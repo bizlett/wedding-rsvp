@@ -190,9 +190,10 @@ Key                     | Value
 ------------------------|-----------
 _id                     | ObjectId
 user_id                 | String
-guest_name              | String
-attending_pre_meet      | Boolean
-attending_wedding       | Boolean
+guest_fname             | String
+guest_lname             | String
+attending_pre_meet      | String
+attending_wedding       | String
 
 #### **food_choices:**
 
