@@ -175,26 +175,26 @@ I have used [Draw.io](https://draw.io/) to make this flowchart which you can vie
 
 I have used MongoDB to set up the database for this project with the following collections: 
 
-#### **Users:**
+#### **users:**
 
-Key      | Value
----------|-----------
-_id      | ObjectId
-username | String
-password | String
+Key        | Value
+-----------|-----------
+_id        | ObjectId
+username   | String
+password   | String
+user_email | String
 
-#### **Guests:**
+#### **guests:**
 
 Key                     | Value
 ------------------------|-----------
 _id                     | ObjectId
 user_id                 | String
 guest_name              | String
-guest_email             | String
-attending_ceremony      | Boolean
-attending_reception     | Boolean
+attending_pre_meet      | Boolean
+attending_wedding       | Boolean
 
-#### **Food_Choices:**
+#### **food_choices:**
 
 Key             | Value
 ----------------|-----------
