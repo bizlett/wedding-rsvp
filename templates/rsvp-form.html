@@ -3,36 +3,33 @@
 
     <div class="row">
         <form class="col-md-8 mx-auto text-center border border-light p-5" action="#!">
-                <div class="card-panel"></div>
+            <div class="card-panel">
 
                 <p class="h4 mb-4">Create an account to register your RSVP</p>
 
-                <p>Attending as a group? You can RSVP for them too. Let us know who's attending by creating an account below.</p>
+                <p>Attending as a group? You can RSVP for them too. Let us know who's attending by creating an account
+                    below.</p>
 
                 <!-- E-mail -->
-                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                <input type="email" name="email" id="rsvp-form-email" class="form-control mb-4" placeholder="E-mail">
 
                 <!-- Password -->
-                <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                <input type="password" name="password" id="rsvp-form-password" class="form-control" placeholder="Password"
+                    aria-describedby="RSVPFormPasswordHelpBlock">
+                <small id="rsvp-form-password-help-block" class="form-text text-muted mb-4">
                     At least 8 characters and 1 digit
                 </small>
 
-                <!-- Receive wedding updates -->
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-                    <label class="custom-control-label" for="defaultRegisterFormNewsletter">Receive wedding updates?</label>
-                </div>
-
                 <!-- Sign up button -->
-                <button class="btn btn-info my-4" type="submit">Create my RSVP</button>
+                <button id="create-rsvp-button" class="btn my-4" type="submit">create my rsvp</button>
 
                 <!-- Register -->
                 <p>
                     Already got an account? <a href="{{ url_for('get_login') }}">Log in</a> to view or edit your RSVP.
                 </p>
             </div>
-        </form>
+    </div>
+    </form>
     </div>
 
 {% endblock %}
