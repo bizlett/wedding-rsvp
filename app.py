@@ -18,11 +18,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_guests")
-def get_guests():
-    guests = mongo.db.guests.find()
-    return render_template("guests.html", guests=guests)
+def index():
+    return render_template("index.html")
 
+@app.route("/get_users")
+def get_users():
+    users = mongo.db.users.find()
+    return render_template("users.html", users=users)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
