@@ -11,17 +11,17 @@
                     below.</p>
 
                 <!-- E-mail -->
-                <input type="email" name="email" id="rsvp-form-email" class="form-control mb-4" placeholder="E-mail">
+                <input type="email" name="email" id="rsvp-form-email" class="form-control mb-4 validate" placeholder="E-mail" required>
 
                 <!-- Password -->
-                <input type="password" name="password" id="rsvp-form-password" class="form-control" placeholder="Password"
-                    aria-describedby="RSVPFormPasswordHelpBlock">
+                <input type="password" name="password" id="rsvp-form-password" class="form-control validate" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{8,20}$" placeholder="Password"
+                    aria-describedby="RSVPFormPasswordHelpBlock" required>
                 <small id="rsvp-form-password-help-block" class="form-text text-muted mb-4">
                     At least 8 characters and 1 digit
                 </small>
 
                 <!-- Sign up button -->
-                <button id="create-rsvp-button" class="btn my-4" type="submit">create my rsvp</button>
+                <button id="create-rsvp-button" class="btn my-4" type="submit">create my account</button>
 
                 <!-- Register -->
                 <p>
