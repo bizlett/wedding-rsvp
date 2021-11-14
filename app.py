@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -27,7 +28,7 @@ def get_login():
     return render_template("login.html")
 
 
-@app.route("/get_rsvp")
+@app.route("/get_rsvp", methods=["GET", "POST"])
 def get_rsvp():
     return render_template("rsvp-form.html")
 
