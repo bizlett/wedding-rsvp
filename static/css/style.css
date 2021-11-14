@@ -1,16 +1,137 @@
-#demo-dropdown {
-    font-size: .75rem;
+html {
+  scroll-padding-top: 5.8rem;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #004949;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #004949;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 6px rgba(228, 235, 238, 1);
+  box-shadow: inset 0 0 6px rgba(228, 235, 238, 1);
 }
 
 .text-shadow {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) ;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+
+/* Containers */
+
+.container {
+  padding: 2rem;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.two-column {
+  text-align: center;
+  line-height: 2rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.center-align {
+  text-align: center;
+}
+
+/* Navbar */
+
+.navbar {
+  font-weight: 300;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  background-color: rgba(0,73,73,0.5);
+}
+
+#demo-dropdown {
+  font-size: .75rem;
+}
+
+.navbar i {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+
+/* Jumbotron & Hero */
+
+.hero-image {
+  height: 100vh;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/us.jpg) no-repeat top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+
+  margin-top: -5rem;
+  z-index: -1;
+}
+
+/* Buttons & Icons */
+
 #create-rsvp-button {
   background-color: #7b9788;
   color: #fff
 }
 
+i {
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+
+
+/* Block dividers */
+
+.hr-heading {
+  border: 1px solid #e4ebee;
+  width: 80%;
+  align-content: center;
+  margin: 2rem 0;
+}
+
+.hr-short {
+  border: 2px solid #e4ebee;
+  width: 5%;
+  align-content: center;
+  margin-bottom: 3rem;
+}
+
+
+/* Flashed messages */
 .flashes h4 {
   line-height: 2;
 }
+
+
+
+
