@@ -28,15 +28,20 @@ def get_login():
     return render_template("login.html")
 
 
-@app.route("/create_rsvp_account", methods=["GET", "POST"])
-def create_rsvp_account():
+@app.route("/get_user")
+def get_user():
+    return render_template("users.html")
+
+
+@app.route("/create_account", methods=["GET", "POST"])
+def create_account():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
 
         if existing_user:
             flash("Email already registered. Please go to log in page.")
-            return redirect(url_for("create_rsvp_account"))
+            return redirect(url_for("create_account"))
 
         user = {
             "email": request.form.get("email").lower(),
@@ -46,7 +51,7 @@ def create_rsvp_account():
 
         session["current_user"] = request.form.get("email").lower()
         flash("Account registration successful!")
-    return render_template("rsvp-form.html")
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
