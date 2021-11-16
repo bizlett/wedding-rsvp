@@ -23,11 +23,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/get_user")
-def get_user():
-    return render_template("users.html")
-
-
 @app.route("/create_account", methods=["GET", "POST"])
 def create_account():
     if request.method == "POST":
@@ -47,6 +42,9 @@ def create_account():
 
         session["current_user"] = request.form.get("email")
         flash("Account registration successful!")
+        return redirect(url_for(
+            "profile", name=session["current_user"]))
+
     return render_template("register.html")
 
 
@@ -60,8 +58,11 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["current_user"] = request.form.get("email")
-                    name = mongo.db.users.find({"name": "name"})
+                    name = mongo.db.users.find_one(
+                        {"name": "name"})
                     flash("Hello, {}!".format(name))
+                    return redirect(url_for(
+                        "profile", name=session["current_user"]))
 
             else:
                 flash("Incorrect login details")
@@ -72,6 +73,14 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<name>", methods=["GET", "POST"])
+def profile(name):
+    # grab the session user's name from db
+    name = mongo.db.users.find_one(
+        {"name": session["current_user"]})
+    return render_template("profile.html", name=name)
 
 
 if __name__ == "__main__":
