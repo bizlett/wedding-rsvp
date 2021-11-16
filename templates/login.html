@@ -2,22 +2,22 @@
 {% block content %}
         <!-- Default form login -->
     <div class="row"></div>
-        <form class="col-md-8 mx-auto text-center border border-light p-5" action="#!">
+        <form class="col-md-8 mx-auto text-center border border-light p-5" method="POST" action="{{ url_for('login') }}">
 
             <p class="h4 mb-4">Log in to edit your RSVP</p>
 
             <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+            <input type="email" name="email" id="login-email" class="form-control mb-4" placeholder="E-mail" required>
 
             <!-- Password -->
-            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+            <input type="password" name="password" id="login-password" class="form-control mb-4" placeholder="Password" required>
 
             <div class="d-flex justify-content-around">
                 <div>
                     <!-- Remember me -->
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                        <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                        <input type="checkbox" class="custom-control-input" id="login-remember-me">
+                        <label class="custom-control-label" for="login-remember-me">Remember me</label>
                     </div>
                 </div>
                 <div>
@@ -31,7 +31,7 @@
 
             <!-- Register -->
             <p>
-                Not got an account yet? <a href="{{ url_for('create_rsvp_account') }}">RSVP</a> to create one.
+                Not got an account yet? <a href="{{ url_for('create_account') }}">RSVP</a> to create one.
             </p>
 
         </form>

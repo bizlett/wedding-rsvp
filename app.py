@@ -23,11 +23,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/get_login")
-def get_login():
-    return render_template("login.html")
-
-
 @app.route("/get_user")
 def get_user():
     return render_template("users.html")
@@ -37,21 +32,46 @@ def get_user():
 def create_account():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
+            {"email": request.form.get("email")})
 
         if existing_user:
             flash("Email already registered. Please go to log in page.")
             return redirect(url_for("create_account"))
 
         user = {
-            "email": request.form.get("email").lower(),
+            "name": request.form.get("name"),
+            "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(user)
 
-        session["current_user"] = request.form.get("email").lower()
+        session["current_user"] = request.form.get("email")
         flash("Account registration successful!")
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email")})
+
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["current_user"] = request.form.get("email")
+                    name = mongo.db.users.find({"name": "name"})
+                    flash("Hello, {}!".format(name))
+
+            else:
+                flash("Incorrect login details")
+                return redirect(url_for("login"))
+
+        else:
+            flash("Incorrect login details")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
