@@ -27,20 +27,20 @@ def index():
 def create_account():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email")})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Email already registered. Please go to log in page.")
+            flash("Username already registered. Please go to log in page.")
             return redirect(url_for("create_account"))
 
         user = {
-            "name": request.form.get("name"),
+            "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(user)
 
-        session["current_user"] = request.form.get("email")
+        session["current_user"] = request.form.get("username").lower()
         flash("Account registration successful!")
         return redirect(url_for(
             "profile", name=session["current_user"]))
@@ -52,15 +52,15 @@ def create_account():
 def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email")})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["current_user"] = request.form.get("email")
-                    name = mongo.db.users.find_one(
-                        {"name": "name"})
-                    flash("Hello, {}!".format(name))
+                    session["current_user"] = request.form.get(
+                        "username").lower()
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
                     return redirect(url_for(
                         "profile", name=session["current_user"]))
 
