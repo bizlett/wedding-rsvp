@@ -43,7 +43,7 @@ def create_account():
         session["current_user"] = request.form.get("username").lower()
         flash("Account registration successful!")
         return redirect(url_for(
-            "profile", name=session["current_user"]))
+            "profile", username=session["current_user"]))
 
     return render_template("register.html")
 
