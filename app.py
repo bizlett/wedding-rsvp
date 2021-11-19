@@ -49,7 +49,7 @@ def create_account():
         session["current_user"] = request.form.get("username").lower()
         flash("Account registration successful!")
         return redirect(url_for(
-            "profile", username=session["current_user"]))
+            "add_guest", username=session["current_user"]))
 
     return render_template("register.html")
 
@@ -86,6 +86,17 @@ def view_rsvp(username):
 
     if session["current_user"]:
         return render_template("view_rsvp.html", username=username)
+    
+    return redirect(url_for("login"))
+
+
+@app.route("/add_guest", methods=["GET", "POST"])
+def add_guest():
+    username = mongo.db.users.find_one(
+        {"username": session["current_user"]})["username"]
+
+    if session["current_user"]:
+        return render_template("add_guest.html", username=username)
     
     return redirect(url_for("login"))
 
