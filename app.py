@@ -23,6 +23,12 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/get_guests_details")
+def get_guests_details():
+    guests = list(mongo.db.guests.find())
+    return render_template("profile.html", guests=guests)
+
+
 @app.route("/create_account", methods=["GET", "POST"])
 def create_account():
     if request.method == "POST":
@@ -61,7 +67,7 @@ def login():
                         flash("Hello, {}!".format(
                             request.form.get("username")))
                         return redirect(url_for(
-                            "profile", username=session["current_user"]))
+                            "view_rsvp", username=session["current_user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -73,13 +79,13 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/view_rsvp/<username>", methods=["GET", "POST"])
+def view_rsvp(username):
     username = mongo.db.users.find_one(
         {"username": session["current_user"]})["username"]
 
     if session["current_user"]:
-        return render_template("profile.html", username=username)
+        return render_template("view_rsvp.html", username=username)
     
     return redirect(url_for("login"))
 
