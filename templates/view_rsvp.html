@@ -4,21 +4,18 @@
     {% if count_guests == 0 %}
     <div class="container">
         <div class="row">
-            <div class="col s12 dashboard" id="blank-dashboard-container">
-                <div class="row " id="blank-dashboard">
-                    <div class="col s12 m3">
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="add-guest">
-                                    <a href="{{ url_for('add_guest', user_id=user_id)}}" title="Add Guest" class="" aria-label="Add Guest">Add Guest</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m9">
-                        <div class="" id="">
-                            <p>After you added a guest, come here to view/edit your RSVP</p>
-                        </div>
+            <div class="col-12">
+                <div class="card center-align text-dark">
+                    <div class="card-body">
+                        <h3 class="card-title p-3">No Guests</h3>
+                        <p>
+                            You haven't added any guests. Add a guest to confirm their attendance and submit your RSVP. 
+                        </p>
+                        <p>
+                            After you have added a guest, come here to view/edit your RSVP. 
+                        </p> 
+                        <button class="btn"> <a href="{{ url_for('add_guest', user_id=user_id)}}" title="Add Guest" 
+                         aria-label="Add Guest">Add Guest</a></button>   
                     </div>
                 </div>
             </div>
@@ -27,19 +24,17 @@
     
     {% else %}
     <div class="container">
-        <div class="row">
-            <div class="col s12" id="">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col" id="">
                 {% if count_guests > 0 %}
-                <form action="{{ url_for('view_rsvp', guest_id=guest_id, user_id=user_id)}}" id="user-rsvp" method="POST" class="row">
-                    <div class="col s12">
-                        <select id="guest-dropdown" name="guest_details" onchange="submitForm()" aria-label="Select guest">
-                            <option value="default" selected disabled aria-label="Select guest" id="default-option">Select guest</option>
+                    <div class="card center-align text-dark">
                         {% for guest in guests %}
-                            <option id="guest-name" value="{{guests.full_name}}" aria-label="Guest Name" class="">{{ guests.full_name }}</option>
+                            <div class="card-body">
+                                <h3 class="card-title p-3">{{ guests.full_name }}</h3>
+                            </div>
                         {% endfor %}
                         </select>
                     </div>
-                </form>
                 {% endif %}
             </div>
             <div class="col s12 dashboard">
