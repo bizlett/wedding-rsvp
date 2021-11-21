@@ -182,7 +182,6 @@ Key        | Value
 _id        | ObjectId
 username   | String
 password   | String
-user_email | String
 
 #### **guests:**
 
@@ -190,8 +189,8 @@ Key                     | Value
 ------------------------|-----------
 _id                     | ObjectId
 user_id                 | String
-guest_fname             | String
-guest_lname             | String
+guest_id                | String
+full_name               | String
 attending_pre_meet      | String
 attending_wedding       | String
 
@@ -205,7 +204,6 @@ user_id         | String
 starter         | String
 main            | String
 dessert         | String
-dietary_reqs    | String
 
 [Back to Top](#table-of-contents)
 
@@ -223,10 +221,10 @@ dietary_reqs    | String
 * Log in and out functionality
 * Add multiple guests per user 
 * CRUD Functions:
-    * Create: possibility to add various guests with RSVPs and food choices unique to them
+    * Create: add various guests RSVPs with food choices unique to them
     * Read: dashboard where you can view the guest information you've submitted
-    * Update: possibility to edit the guest information you've submitted
-    * Delete: possibility to delete the guest information you've submitted
+    * Update: edit the guest information you've submitted
+    * Delete: delete the guest information you've submitted
 * Search guests by name
 
 <a></a>
@@ -254,7 +252,7 @@ dietary_reqs    | String
 ### **Libraries and Frameworks**
 
 * [Font Awesome](https://fontawesome.com/)
-* [Materialize](https://materializecss.com/)
+* [Material Design for Bootstrap](https://mdbootstrap.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [jQuery](https://jquery.com/)
 
