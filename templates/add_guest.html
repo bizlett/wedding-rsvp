@@ -59,40 +59,41 @@
                             Please select your food options for the Wedding Day:
                         </p>
 
-                        <h5>Starter</h5>
-                        <p>
-                            <select class="browser-default custom-select">
-                                <option selected>Choose your starter</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h5><label for="starter">Starter</label></h5>
+                                <select id="starter" name="starter" class="validate">
+                                    <option value="" selected>Choose your starter</option>
+                                    {% for starter in starters %}
+                                        <option value="{{ food_choices.starter }}">{{ food_choices.starter }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
 
-                        <h5>Main</h5>
-                        <p>
-                            <select class="browser-default custom-select">
-                                <option selected>Choose your main</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h5><label for="main">Main</label></h5>
+                                <select id="main" name="main" class="validate">
+                                    <option value="" selected>Choose your main</option>
+                                    {% for main in mains %}
+                                        <option value="{{ food_choices.main }}">{{ food_choices.main }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
 
-                        <h5>Dessert</h5>
-                        <p>
-                            <select class="browser-default custom-select">
-                                <option selected>Choose your dessert</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </p>
-
-                        <h5>Please let us know if you have any dietary requirements or food allergies:</h5>
-                        <p>
-                            <input type="text" name="dietary-requirements" id="dietary-requirements" class="form-control mb-4" placeholder="Type your answer here">
-                        </p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h5><label for="dessert">Dessert</label></h5>
+                                <select id="dessert" name="dessert" class="validate">
+                                    <option value="" selected>Choose your dessert</option>
+                                    {% for dessert in desserts %}
+                                        <option value="{{ food_choices.dessert }}">{{ food_choices.dessert }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
