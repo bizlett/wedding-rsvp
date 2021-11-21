@@ -20,11 +20,19 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
+    """
+    Loads the homepage
+    """
     return render_template("index.html")
 
 
 @app.route("/create_account", methods=["GET", "POST"])
 def create_account():
+    """
+    User can register for an account to submit their RSVP
+    Checks if the username is already registered or not
+    Redirects user to view their RSVP information
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -56,6 +64,11 @@ def create_account():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Allows user to login to their RSVP account
+        using their username and password details
+    Redirects user to view their RSVP information
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -82,6 +95,10 @@ def login():
 
 @app.route("/view_rsvp/<user_id>", methods=["GET", "POST"])
 def view_rsvp(user_id):
+    """
+    User landing page after login/account creation
+    Displays user rsvp information
+    """
     guests = mongo.db.guests.find({"user_id": user_id})
     count_guests = guests.count()
     return render_template(
@@ -90,11 +107,19 @@ def view_rsvp(user_id):
 
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
 def add_guest(user_id):
+    """
+    Takes user to Add Guest form
+    """
     return render_template("add_guest.html", user_id=user_id)
 
 
 @app.route("/logout")
 def logout():
+    """
+    Allows user to log out
+    Clears user session
+    Redirects user to login page
+    """
     flash("You have been logged out")
     session.pop("user_id")
     return redirect(url_for("login"))
