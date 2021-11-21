@@ -23,12 +23,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/get_guests_details")
-def get_guests_details():
-    guests = list(mongo.db.guests.find())
-    return render_template("profile.html", guests=guests)
-
-
 @app.route("/create_account", methods=["GET", "POST"])
 def create_account():
     if request.method == "POST":
@@ -39,17 +33,23 @@ def create_account():
             flash("Username already registered. Please go to log in page.")
             return redirect(url_for("create_account"))
 
-        user = {
-            "username": request.form.get("username").lower(),
-            "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.users.insert_one(user)
+        username = request.form.get("username").lower()
+        password = generate_password_hash(request.form.get("password"))
 
-        session["current_user"] = request.form.get("username").lower()
+        mongo.db.users.insert_one({
+            'username': username,
+            'password': password})
+
         flash("Account registration successful!")
-        return redirect(url_for(
-            "add_guest", username=session["current_user"]))
+
+        if mongo.db.users.find_one({"username": username}) is not None:
+            user = mongo.db.users.find_one({"username": username})
+            user_id = user["_id"]
+            session["user_id"] = str(user_id)
+            guests = mongo.db.guests.find({"user_id": user_id})
+            count_guests = guests.count()
+            return redirect(url_for(
+                "view_rsvp", user_id=user_id, count_guests=count_guests))
 
     return render_template("register.html")
 
@@ -63,11 +63,12 @@ def login():
         if existing_user:
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["current_user"] = request.form.get("username").lower()
-                        flash("Hello, {}!".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "view_rsvp", username=session["current_user"]))
+                user_id = str(existing_user["_id"])
+                session["user_id"] = str(user_id)
+                flash("Hello, {}!".format(request.form.get("username")))
+                return redirect(url_for(
+                    "view_rsvp", user_id=session["user_id"]))
+
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -79,32 +80,23 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/view_rsvp/<username>", methods=["GET", "POST"])
-def view_rsvp(username):
-    username = mongo.db.users.find_one(
-        {"username": session["current_user"]})["username"]
-
-    if session["current_user"]:
-        return render_template("view_rsvp.html", username=username)
-    
-    return redirect(url_for("login"))
+@app.route("/view_rsvp/<user_id>", methods=["GET", "POST"])
+def view_rsvp(user_id):
+    guests = mongo.db.guests.find({"user_id": user_id})
+    count_guests = guests.count()
+    return render_template(
+        "view_rsvp.html", user_id=user_id, count_guests=count_guests)
 
 
-@app.route("/add_guest", methods=["GET", "POST"])
-def add_guest():
-    username = mongo.db.users.find_one(
-        {"username": session["current_user"]})["username"]
-
-    if session["current_user"]:
-        return render_template("add_guest.html", username=username)
-    
-    return redirect(url_for("login"))
+@app.route("/add_guest/<user_id>", methods=["GET", "POST"])
+def add_guest(user_id):
+    return render_template("add_guest.html", user_id=user_id)
 
 
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
-    session.pop("current_user")
+    session.pop("user_id")
     return redirect(url_for("login"))
 
 
