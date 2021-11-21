@@ -1,6 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {{ username }}'s profile
+    {% if count_guests == 0 %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 dashboard" id="blank-dashboard-container">
+                <div class="row " id="blank-dashboard">
+                    <div class="col s12 m3">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="add-guest">
+                                    <a href="{{ url_for('add_guest', user_id=user_id)}}" title="Add Guest" class="" aria-label="Add Guest">Add Guest</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m9">
+                        <div class="" id="">
+                            <p>After you added a guest, come here to view/edit your RSVP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12" id="">
+                {% if count_guests > 0 %}
+                <form action="{{ url_for('view_rsvp', guest_id=guest_id, user_id=user_id)}}" id="user-rsvp" method="POST" class="row">
+                    <div class="col s12">
+                        <select id="guest-dropdown" name="guest_details" onchange="submitForm()" aria-label="Select guest">
+                            <option value="default" selected disabled aria-label="Select guest" id="default-option">Select guest</option>
+                        {% for guest in guests %}
+                            <option id="guest-name" value="{{guests.full_name}}" aria-label="Guest Name" class="">{{ guests.full_name }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+            <div class="col s12 dashboard">
+                <div class="col s12 m3">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="">
+                                <a href="{{ url_for('add_guest', user_id=user_id)}}" title="Add Guest" class="" aria-label="Add Guest">Add Guest</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
 {% endblock %}
