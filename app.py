@@ -110,7 +110,24 @@ def add_guest(user_id):
     """
     Takes user to Add Guest form
     """
-    return render_template("add_guest.html", user_id=user_id)
+    food_choices = mongo.db.food_choices.find().sort(
+        "starter" "main" "dessert", 1)
+    guest_details = {
+        "user_id": request.form.get("user_id"),
+        "full_name": request.form.get("full_name"),
+        "attending_pre_meet": request.form.get("attending_pre_meet"),
+        "attending_wedding": request.form.get("attending_wedding"),
+        "starter": request.form.get("starter"),
+        "main": request.form.get("main"),
+        "dessert": request.form.get("dessert")
+    }
+    mongo.db.guests.insert_one(guest_details)
+    guest_details = mongo.db.guests.find_one({
+        "full_name": request.form.get("fname"),
+        "user_id": request.form.get("user_id")})
+    guest_id = guest_details["_id"]
+    
+    return render_template("add_guest.html", user_id=user_id, food_choices=food_choices, guest_id=guest_id)
 
 
 @app.route("/logout")
