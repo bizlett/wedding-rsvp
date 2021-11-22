@@ -1,114 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
-    <div id="smartwizard">
 
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#step-1">
-                    Guest Details
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#step-2">
-                    Food Options
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#step-3">
-                    Review
-                </a>
-            </li>
-        </ul>
+    <form class="border border-light p-5" action="{{ url_for('add_guest', user_id=user_id) }}" method="POST">
 
+        <p class="h3 mb-4">Guest Details</p>
 
-        <form id="create-account" class="col-md-8 mx-auto text-center border border-light p-5" method="POST"
-            action="{{ url_for('create_account') }}">
-            <div class="tab-content">
+        <input type="text" name="user_id" id="user_id" class="user_id" value="{{ user_id }}" hidden/>
+        <label for="full_name">Name:</label>   
+        <input type="text" name="full_name" id="full_name" class="form-control mb-4" placeholder="Enter full name of guest" required>
 
-                <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
-                    <div class="col-md-8 mx-auto text-center p-5">
-                        <h3>Guest Details</h3>
+        <p class="h5 mb-4">Which events will this guest be attending?</p>
 
-                        <input type="text" name="guest-name" id="guest-name" class="form-control mb-4"
-                            placeholder="Name of Guest" required>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">
+            <label class="custom-control-label" for="attending_pre_meet">Pre-meet - 7 May 2022, 1pm - 5pm</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="attending_wedding">Wedding Day - 21 May 2022, 2pm - midnight</label>
+        </div>
 
-                        <p>
-                            Which events will this guest be attending?
-                        </p>
+        <br>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Pre-meet - 7
-                                May 2022, 1pm - 5pm
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Wedding Day - 21 May 2022, 2pm - midnight
-                            </label>
-                        </div>
-                    </div>
-                </div>
+        <p class="h5 mb-4">Please select food options:</p>
 
-                <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
-                    <div class="col-md-8 mx-auto text-center p-5">
-                        <h3>Food Options</h3>
+        <label>Starter</label>
+        <select id="starter" name="starter" class="browser-default custom-select mb-4">
+            <option value="" selected>Choose your starter</option>
+            {% for starter in starters %}
+                <option value="{{ food_choices.starter }}">{{ food_choices.starter }}</option>
+            {% endfor %}
+        </select>
 
-                        <p>
-                            Please select your food options for the Wedding Day:
-                        </p>
+        <label>Main</label>
+        <select id="main" name="main" class="browser-default custom-select mb-4">
+            <option value="" selected>Choose your main</option>
+            {% for main in mains %}
+                <option value="{{ food_choices.main }}">{{ food_choices.main }}</option>
+            {% endfor %}
+        </select>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <h5><label for="starter">Starter</label></h5>
-                                <select id="starter" name="starter" class="validate">
-                                    <option value="" selected>Choose your starter</option>
-                                    {% for starter in starters %}
-                                        <option value="{{ food_choices.starter }}">{{ food_choices.starter }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
+        <label>Dessert</label>
+        <select id="dessert" name="dessert" class="browser-default custom-select mb-4">
+            <option value="" selected>Choose your dessert</option>
+            {% for dessert in desserts %}
+                <option value="{{ food_choices.dessert }}">{{ food_choices.dessert }}</option>
+            {% endfor %}
+        </select>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <h5><label for="main">Main</label></h5>
-                                <select id="main" name="main" class="validate">
-                                    <option value="" selected>Choose your main</option>
-                                    {% for main in mains %}
-                                        <option value="{{ food_choices.main }}">{{ food_choices.main }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
+        <button class="btn btn-info" type="submit">Add Guest</button>
+        <button class="btn btn-info" type="submit">Send RSVP</button>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <h5><label for="dessert">Dessert</label></h5>
-                                <select id="dessert" name="dessert" class="validate">
-                                    <option value="" selected>Choose your dessert</option>
-                                    {% for dessert in desserts %}
-                                        <option value="{{ food_choices.dessert }}">{{ food_choices.dessert }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
-                    <div class="card-panel">
-
-                        
-
-
-                        <button id="add-guest" class="btn my-4" type="submit">Add Guest</button>
-                        <button id="create-rsvp-button" class="btn my-4" type="submit">Send RSVP</button>
-                    </div>
-                </div>
-        </form>
-    </div>
+    </form>
 
 {% endblock %}
