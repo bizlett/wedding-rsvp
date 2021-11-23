@@ -26,7 +26,7 @@
 
         <label>Starter</label>
         <select id="starter" name="starter" class="browser-default custom-select mb-4">
-            <option value="" selected>Choose your starter</option>
+            <option value="Choose your starter" selected>Choose your starter</option>
             {% for starter in food_choices %}
                 <option value="{{ starter.starter }}">{{ starter.starter }}</option>
             {% endfor %}
@@ -34,7 +34,7 @@
 
         <label>Main</label>
         <select id="main" name="main" class="browser-default custom-select mb-4">
-            <option value="" selected>Choose your main</option>
+            <option value="Choose your main" selected>Choose your main</option>
             {% for main in food_choices %}
                 <option value="{{ main.main }}">{{ main.main }}</option>
             {% endfor %}
@@ -42,7 +42,7 @@
 
         <label>Dessert</label>
         <select id="dessert" name="dessert" class="browser-default custom-select mb-4">
-            <option value="" selected>Choose your dessert</option>
+            <option value="Choose your dessert" selected>Choose your dessert</option>
             {% for dessert in food_choices %}
                 <option value="{{ dessert.dessert }}">{{ dessert.dessert }}</option>
             {% endfor %}
