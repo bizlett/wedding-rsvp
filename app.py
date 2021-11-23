@@ -124,7 +124,10 @@ def add_guest(user_id):
         flash("Guest succesfully added!")
         return redirect(url_for("view_rsvp", user_id=user_id))
 
-    food_choices = mongo.db.food_choices.find()
+    food_choices = mongo.db.food_choices.find().sort([
+        ("starter", 1),
+        ("main", 1),
+        ("dessert", 1)])
     return render_template(
         "add_guest.html", user_id=user_id, food_choices=food_choices)
 
