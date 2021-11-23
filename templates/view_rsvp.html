@@ -25,19 +25,21 @@
     {% else %}
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col" id="">
-                    {% if count_guests > 0 %}
-                        <div class="card center-align text-dark">
-                            {% for guest in guests %}
-                                <div class="card-body">
-                                    <h3 class="card-title p-3">{{ guests.full_name }}</h3>
-                                </div>
-                            {% endfor %}
-                            </select>
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="col s12 dashboard">
+                <form action="{{ url_for('view_rsvp', guest_id=guest_id, user_id=user_id)}}" method="POST" class="row">
+                    <div class="col" id="">
+                        {% if count_guests >= 1 %}
+                            <div class="card center-align text-dark">
+                                {% for guest in guests %}
+                                    <div class="card-body">
+                                        <h3 class="card-title p-3">{{ guest.full_name }}</h3>
+                                    </div>
+                                {% endfor %}
+                                </select>
+                            </div>
+                        {% endif %}
+                    </div>
+                </form>
+                <div class="col s12">
                     <div class="col s12 m3">
                         <div class="row">
                             <div class="col s12">

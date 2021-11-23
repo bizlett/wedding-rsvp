@@ -102,7 +102,8 @@ def view_rsvp(user_id):
     guests = mongo.db.guests.find({"user_id": user_id})
     count_guests = guests.count()
     return render_template(
-        "view_rsvp.html", user_id=user_id, count_guests=count_guests)
+        "view_rsvp.html", user_id=user_id,
+        guests=guests, count_guests=count_guests)
 
 
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
@@ -110,6 +111,11 @@ def add_guest(user_id):
     """
     Takes user to Add Guest form
     """
+    food_choices = mongo.db.food_choices.find().sort([
+        ("starter", 1),
+        ("main", 1),
+        ("dessert", 1)])
+    guests = mongo.db.guests.find({"user_id": user_id})
     if request.method == "POST":
         guest_details = {
             "user_id": request.form.get("user_id"),
@@ -122,12 +128,15 @@ def add_guest(user_id):
         }
         mongo.db.guests.insert_one(guest_details)
         flash("Guest succesfully added!")
-        return redirect(url_for("view_rsvp", user_id=user_id))
+        guest_details = mongo.db.guests.find_one({
+            "full_name": request.form.get("full_name").lower(),
+            "user_id": request.form.get("user_id")})
+        guest_id = guest_details["_id"]
+        count_guests = guests.count()
+        return redirect(url_for(
+            "view_rsvp", user_id=user_id, guest_id=guest_id,
+            count_guests=count_guests, food_choices=food_choices))
 
-    food_choices = mongo.db.food_choices.find().sort([
-        ("starter", 1),
-        ("main", 1),
-        ("dessert", 1)])
     return render_template(
         "add_guest.html", user_id=user_id, food_choices=food_choices)
 
