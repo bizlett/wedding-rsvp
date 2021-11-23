@@ -139,3 +139,19 @@ i {
 
 
 /* RSVP form */
+
+
+/* View Rsvp */
+
+.guest-card {
+  color: #000;
+  background-color: rgba(53, 126, 128, .4);
+  height: 23rem;
+  width: 16rem;
+  margin: 1rem;
+  border-radius: 3px;
+
+  padding: .5rem;
+  justify-content: center;
+  text-align: center;
+}

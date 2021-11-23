@@ -131,10 +131,9 @@ def add_guest(user_id):
         guest_details = mongo.db.guests.find_one({
             "full_name": request.form.get("full_name").lower(),
             "user_id": request.form.get("user_id")})
-        guest_id = guest_details["_id"]
         count_guests = guests.count()
         return redirect(url_for(
-            "view_rsvp", user_id=user_id, guest_id=guest_id,
+            "view_rsvp", user_id=user_id,
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
