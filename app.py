@@ -111,10 +111,10 @@ def add_guest(user_id):
     """
     Takes user to Add Guest form
     """
-    food_choices = mongo.db.food_choices.find().sort([
+    food_choices = list(mongo.db.food_choices.find().sort([
         ("starter", 1),
         ("main", 1),
-        ("dessert", 1)])
+        ("dessert", 1)]))
     guests = mongo.db.guests.find({"user_id": user_id})
     if request.method == "POST":
         guest_details = {
