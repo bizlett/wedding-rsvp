@@ -85,7 +85,7 @@ body {
 .hero-image {
   height: 100vh;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/us.jpg) no-repeat bottom fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/us.jpg) no-repeat top fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
