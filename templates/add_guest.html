@@ -22,11 +22,12 @@
 
         <br>
 
-        <p class="h5 mb-4">Please select food options:</p>
+        <p class="h5 mb-4">If you're attending the wedding, please select your food options. Otherwise, please select "Not required":</p>
 
         <label>Starter</label>
         <select id="starter" name="starter" class="browser-default custom-select mb-4">
             <option value="Choose your starter" selected>Choose your starter</option>
+            <option value="Not required">Not required</option>
             {% for starter in food_choices %}
                 <option value="{{ starter.starter }}">{{ starter.starter }}</option>
             {% endfor %}
@@ -35,6 +36,7 @@
         <label>Main</label>
         <select id="main" name="main" class="browser-default custom-select mb-4">
             <option value="Choose your main" selected>Choose your main</option>
+            <option value="Not required">Not required</option>
             {% for main in food_choices %}
                 <option value="{{ main.main }}">{{ main.main }}</option>
             {% endfor %}
@@ -43,6 +45,7 @@
         <label>Dessert</label>
         <select id="dessert" name="dessert" class="browser-default custom-select mb-4">
             <option value="Choose your dessert" selected>Choose your dessert</option>
+            <option value="Not required">Not required</option>
             {% for dessert in food_choices %}
                 <option value="{{ dessert.dessert }}">{{ dessert.dessert }}</option>
             {% endfor %}
