@@ -32,7 +32,7 @@ body {
   0.5) ;
 }
 
-p {
+.main-page-p {
   margin-top: 0;
   margin-bottom: 2rem;
 }
@@ -85,7 +85,7 @@ p {
 .hero-image {
   height: 100vh;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/us.jpg) no-repeat top fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/us.jpg) no-repeat bottom fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -142,16 +142,11 @@ i {
 
 
 /* View Rsvp */
+.card {
+  margin: 10px;
+  width: 25rem;
+}
 
-.guest-card {
-  color: #000;
-  background-color: rgba(53, 126, 128, .4);
-  height: 23rem;
-  width: 16rem;
-  margin: 1rem;
-  border-radius: 3px;
-
-  padding: .5rem;
-  justify-content: center;
-  text-align: center;
+.guest-card-i {
+  font-size: 1rem;
 }
