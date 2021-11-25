@@ -19,11 +19,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def index():
+def home():
     """
     Loads the homepage
     """
-    return render_template("index.html")
+    return render_template("home.html")
 
 
 @app.route("/create_account", methods=["GET", "POST"])
