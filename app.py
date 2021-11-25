@@ -23,7 +23,7 @@ def home():
     """
     Loads the homepage
     """
-    return render_template("home.html")
+    return render_template("/pages/home.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -80,7 +80,7 @@ def login():
                 session["user_id"] = str(user_id)
                 flash("Hello, {}!".format(request.form.get("username")))
                 return redirect(url_for(
-                    "view_rsvp", user_id=session["user_id"]))
+                    "/pages/view_rsvp", user_id=session["user_id"]))
 
             else:
                 flash("Incorrect Username and/or Password")
@@ -102,7 +102,7 @@ def view_rsvp(user_id):
     guests = mongo.db.guests.find({"user_id": user_id})
     count_guests = guests.count()
     return render_template(
-        "view_rsvp.html", user_id=user_id,
+        "/pages/view_rsvp.html", user_id=user_id,
         guests=guests, count_guests=count_guests)
 
 
@@ -133,7 +133,7 @@ def add_guest(user_id):
             "user_id": request.form.get("user_id")})
         count_guests = guests.count()
         return redirect(url_for(
-            "view_rsvp", user_id=user_id,
+            "/pages/view_rsvp", user_id=user_id,
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
