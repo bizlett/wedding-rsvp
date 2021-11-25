@@ -1,7 +1,7 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
-    <!-- {% if count_guests == 0 %}
+    {% if count_guests == 0 %}
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    {% else %} -->
+    {% else %}
     <div class="container">
         <div class="row">
             <div class="col s12">
@@ -57,8 +57,8 @@
                                 <strong>Main:</strong> {{ guest.main }}<br>
                                 <strong>Dessert:</strong> {{ guest.dessert }}<br>
                               </p>
-                              <a class="btn btn-default btn-sm">Edit Guest</a>
-                              <a class="btn btn-danger btn-sm">Delete Guest</a>
+                              <a href="{{ url_for('edit_guest', user_id=user_id, guest_id=guest_id) }}" class="btn btn-default btn-sm">Edit Guest</a>
+                              <a href="" class="btn btn-danger btn-sm">Delete Guest</a>
                             </div>
                         </div>
                             {% endfor %}  
@@ -68,6 +68,6 @@
             </form>
         </div>
     </div>
-    <!-- {% endif %} -->
+    {% endif %} 
 
 {% endblock %}

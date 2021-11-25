@@ -136,8 +136,19 @@ def add_guest(user_id):
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
-        "/components/forms/add-guest.html",
+        "/components/forms/guest-details.html",
         user_id=user_id, food_choices=food_choices)
+
+
+@app.route("/edit-guest/<guest_id>", methods=["GET", "POST"])
+def edit_guest():
+    selected_guest = mongo.db.guests.find_one({"_id": ObjectId(guest_id)})
+    food_choices = list(mongo.db.food_choices.find().sort([
+        ("starter", 1),
+        ("main", 1),
+        ("dessert", 1)]))
+    return render_template(
+        "/components/forms/guest-details.html", food_choices=food_choices)
 
 
 @app.route("/logout")
