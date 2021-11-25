@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "/layout/base.html" %}
 {% block content %}
 
     <form class="border border-light p-5" action="{{ url_for('add_guest', user_id=user_id) }}" method="POST">

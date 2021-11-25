@@ -137,7 +137,7 @@ def add_guest(user_id):
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
-        "add_guest.html", user_id=user_id, food_choices=food_choices)
+        "/components/forms/add_guest.html", user_id=user_id, food_choices=food_choices)
 
 
 @app.route("/logout")
