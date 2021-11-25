@@ -26,8 +26,8 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/create_account", methods=["GET", "POST"])
-def create_account():
+@app.route("/register", methods=["GET", "POST"])
+def register():
     """
     User can register for an account to submit their RSVP
     Checks if the username is already registered or not
@@ -39,7 +39,7 @@ def create_account():
 
         if existing_user:
             flash("Username already registered. Please go to log in page.")
-            return redirect(url_for("create_account"))
+            return redirect(url_for("register"))
 
         username = request.form.get("username").lower()
         password = generate_password_hash(request.form.get("password"))
@@ -59,7 +59,7 @@ def create_account():
             return redirect(url_for(
                 "view_rsvp", user_id=user_id, count_guests=count_guests))
 
-    return render_template("register.html")
+    return render_template("auth.html", register=True)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -90,7 +90,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("auth.html")
 
 
 @app.route("/view_rsvp/<user_id>", methods=["GET", "POST"])

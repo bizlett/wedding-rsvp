@@ -150,3 +150,9 @@ i {
 .guest-card-i {
   font-size: 1rem;
 }
+
+/* Authentication */
+
+.pattern {
+  font-size: .8rem;
+}
