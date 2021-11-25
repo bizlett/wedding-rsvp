@@ -54,12 +54,11 @@ def register():
             user = mongo.db.users.find_one({"username": username})
             user_id = user["_id"]
             session["user_id"] = str(user_id)
-            guests = mongo.db.guests.find({"user_id": user_id})
-            count_guests = guests.count()
             return redirect(url_for(
                 "add_guest", user_id=user_id))
 
-    return render_template("/components/forms/authentication.html", register=True)
+    return render_template(
+        "/components/forms/authentication.html", register=True)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -137,7 +136,8 @@ def add_guest(user_id):
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
-        "/components/forms/add_guest.html", user_id=user_id, food_choices=food_choices)
+        "/components/forms/add-guest.html",
+        user_id=user_id, food_choices=food_choices)
 
 
 @app.route("/logout")
