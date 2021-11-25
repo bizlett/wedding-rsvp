@@ -57,9 +57,9 @@ def register():
             guests = mongo.db.guests.find({"user_id": user_id})
             count_guests = guests.count()
             return redirect(url_for(
-                "view_rsvp", user_id=user_id, count_guests=count_guests))
+                "add_guest", user_id=user_id))
 
-    return render_template("auth.html", register=True)
+    return render_template("/components/forms/authentication.html", register=True)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -90,7 +90,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("auth.html")
+    return render_template("/components/forms/authentication.html")
 
 
 @app.route("/view_rsvp/<user_id>", methods=["GET", "POST"])
