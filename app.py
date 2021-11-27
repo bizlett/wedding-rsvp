@@ -137,18 +137,23 @@ def add_guest(user_id):
 
     return render_template(
         "/components/forms/guest-details.html",
-        user_id=user_id, food_choices=food_choices)
+        user_id=user_id, food_choices=food_choices, add=True)
 
 
 @app.route("/edit-guest/<guest_id>", methods=["GET", "POST"])
-def edit_guest():
-    selected_guest = mongo.db.guests.find_one({"_id": ObjectId(guest_id)})
+def edit_guest(guest_id):
+    """
+    User can edit/update guest information
+    """
+    guest = mongo.db.guests.find_one({"_id": ObjectId(guest_id)})
+    guest_id = guest["_id"]
     food_choices = list(mongo.db.food_choices.find().sort([
         ("starter", 1),
         ("main", 1),
         ("dessert", 1)]))
     return render_template(
-        "/components/forms/guest-details.html", food_choices=food_choices)
+        "/components/forms/guest-details.html",
+        food_choices=food_choices, guest_id=guest_id, guest=guest)
 
 
 @app.route("/logout")

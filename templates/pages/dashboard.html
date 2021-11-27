@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="">
-                    <a href="{{ url_for('add_guest', user_id=user_id)}}" title="Add Guest" class=""
+                    <a href="{{ url_for('add_guest', user_id=user_id) }}" title="Add Guest" class=""
                         aria-label="Add Guest">Add Guest</a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                                 <strong>Main:</strong> {{ guest.main }}<br>
                                 <strong>Dessert:</strong> {{ guest.dessert }}<br>
                               </p>
-                              <a href="{{ url_for('edit_guest', user_id=user_id, guest_id=guest_id) }}" class="btn btn-default btn-sm">Edit Guest</a>
+                              <a href="{{ url_for('edit_guest', guest_id=guest_id) }}" class="btn btn-default btn-sm">Edit Guest</a>
                               <a href="" class="btn btn-danger btn-sm">Delete Guest</a>
                             </div>
                         </div>
