@@ -13,17 +13,31 @@
             </p>
 
             <input type="text" name="user_id" id="user_id" class="user_id" value="{{ user_id }}" hidden/>
-            <label for="full_name">Name:</label>   
-            <input type="text" name="full_name" id="full_name" class="form-control mb-4" placeholder="Enter full name of guest" required>
+            <label for="full_name">Name:</label>
+                <input type="text" name="full_name" id="full_name" class="form-control mb-4" 
+                placeholder="Enter full name of guest" required 
+                {% if add != True %} value= "{{ guest.full_name }}" {% endif %}>
 
             <p class="h5 mb-4">Which events will this guest be attending?</p>
 
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">
+                {% if add != True %}
+                    {% if guest.attending_pre_meet == "on" %}
+                        <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input" checked>
+                    {% else %}
+                        <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">
+                    {% endif %}
+                {% endif %}
                 <label class="custom-control-label" for="attending_pre_meet">Pre-meet - 7 May 2022, 1pm - 5pm</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input" id="defaultUnchecked">
+                {% if add != True %}
+                    {% if guest.attending_wedding == "on" %}
+                        <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input" checked>
+                        {% else %}
+                        <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input">
+                    {% endif %}
+                {% endif %}
                 <label class="custom-control-label" for="attending_wedding">Wedding Day - 21 May 2022, 2pm - midnight</label>
             </div>
 
@@ -32,30 +46,54 @@
             <p class="h5 mb-4">If you're attending the wedding, please select your food options. Otherwise, please select "Not required":</p>
 
             <label>Starter</label>
-            <select id="starter" name="starter" class="browser-default custom-select mb-4" required>
-                <option value="Choose your starter" selected>Choose your starter</option>
-                <option value="Not required">Not required</option>
-                {% for starter in food_choices %}
-                    <option value="{{ starter.starter }}">{{ starter.starter }}</option>
-                {% endfor %}
-            </select>
+                <select id="starter" name="starter" class="browser-default custom-select mb-4" required>                    
+                    {% if add != True %}
+                            {% for starter in food_choices %}
+                                {% if starter.starter == guest.starter %}
+                                    <option value="{{ guest.starter }}" selected>{{ guest.starter }} </option>
+                                {% endif %}
+                                <option value="{{ starter.starter }}">{{ starter.starter }}</option>
+                            {% endfor %}
+                    {% else %}
+                            <option value="Select your starter">Select your starter</option>
+                        {% for starter in food_choices %}
+                            <option value="{{ starter.starter }}">{{ starter.starter }}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
 
             <label>Main</label>
             <select id="main" name="main" class="browser-default custom-select mb-4" required>
-                <option value="Choose your main" selected>Choose your main</option>
-                <option value="Not required">Not required</option>
-                {% for main in food_choices %}
-                    <option value="{{ main.main }}">{{ main.main }}</option>
-                {% endfor %}
+                {% if add != True %}
+                            {% for main in food_choices %}
+                                {% if main.main == guest.starter %}
+                                    <option value="{{ guest.main }}" selected>{{ guest.main }} </option>
+                                {% endif %}
+                                <option value="{{ main.main }}">{{ main.main }}</option>
+                            {% endfor %}
+                    {% else %}
+                            <option value="Select your main">Select your main</option>
+                        {% for main in food_choices %}
+                            <option value="{{ main.main }}">{{ main.main }}</option>
+                        {% endfor %}
+                    {% endif %}
             </select>
 
             <label>Dessert</label>
             <select id="dessert" name="dessert" class="browser-default custom-select mb-4" required>
-                <option value="Choose your dessert" selected>Choose your dessert</option>
-                <option value="Not required">Not required</option>
-                {% for dessert in food_choices %}
-                    <option value="{{ dessert.dessert }}">{{ dessert.dessert }}</option>
-                {% endfor %}
+                {% if add != True %}
+                            {% for dessert in food_choices %}
+                                {% if dessert.dessert == guest.dessert %}
+                                    <option value="{{ guest.dessert }}" selected>{{ guest.dessert }} </option>
+                                {% endif %}
+                                <option value="{{ dessert.dessert }}">{{ dessert.dessert }}</option>
+                            {% endfor %}
+                    {% else %}
+                            <option value="Select your dessert">Select your dessert</option>
+                        {% for dessert in food_choices %}
+                            <option value="{{ dessert.dessert }}">{{ dessert.dessert }}</option>
+                        {% endfor %}
+                    {% endif %}
             </select>
             <div class="col d-flex justify-content-center">
                 <button class="btn btn-info my-4" type="submit">

@@ -153,7 +153,7 @@ def edit_guest(guest_id):
         ("dessert", 1)]))
     return render_template(
         "/components/forms/guest-details.html",
-        guest_id=guest_id, food_choices=food_choices)
+        guest=guest, guest_id=guest_id, food_choices=food_choices)
           
 
 @app.route("/logout")
