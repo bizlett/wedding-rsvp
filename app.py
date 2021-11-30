@@ -145,6 +145,8 @@ def edit_guest(guest_id):
     """
     User can edit/update guest information
     """
+    user = mongo.db.users.find_one()
+    user_id = user["_id"]
     guest = mongo.db.guests.find_one({"_id": ObjectId(guest_id)})
     guest_id = guest["_id"]
     food_choices = list(mongo.db.food_choices.find().sort([
@@ -153,7 +155,7 @@ def edit_guest(guest_id):
         ("dessert", 1)]))
     return render_template(
         "/components/forms/guest-details.html",
-        guest=guest, guest_id=guest_id, food_choices=food_choices)
+        guest=guest, guest_id=guest_id, food_choices=food_choices, user_id=user_id)
           
 
 @app.route("/logout")
