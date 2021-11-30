@@ -108,7 +108,7 @@ def dashboard(user_id):
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
 def add_guest(user_id):
     """
-    Takes user to Add Guest form
+    User can add a guest
     """
     food_choices = list(mongo.db.food_choices.find().sort([
         ("starter", 1),
@@ -178,6 +178,32 @@ def edit_guest(guest_id):
         "/components/forms/guest-details.html",
         guest=guest, guest_id=guest_id,
         food_choices=food_choices, user_id=user_id)
+
+
+@app.route("/delete_guest/<user_id>/<guest_id>")
+def delete_guest(user_id, guest_id):
+    """
+    Allows the user to delete a guest
+    Redirects the user back to the dashboard
+    """
+    guests = mongo.db.guests.find({"user_id": user_id})
+
+    if guests.count() > 0:
+        mongo.db.guests.remove({'_id': ObjectId(guest_id)})
+        guest = mongo.db.guests.find_one({"user_id": user_id})
+        guest_id = guest["_id"]
+        guests = mongo.db.dogs.find({"user_id": user_id})
+        count_guests = guests.count()
+        return redirect(url_for(
+            "dashboard", user_id=user_id, guest_id=guest_id,
+            count_guests=count_guests))
+
+    else:
+        mongo.db.guests.remove({'_id': ObjectId(guest_id)})
+        guests = mongo.db.guests.find({"user_id": user_id})
+        count_guests = guests.count()
+        return redirect(url_for(
+            "dashboard", user_id=user_id, count_guests=count_guests))
 
 
 @app.route("/logout")
