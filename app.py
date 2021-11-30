@@ -147,16 +147,38 @@ def edit_guest(guest_id):
     """
     user = mongo.db.users.find_one()
     user_id = user["_id"]
+    guests = mongo.db.guests.find({"user_id": user_id})
     guest = mongo.db.guests.find_one({"_id": ObjectId(guest_id)})
     guest_id = guest["_id"]
     food_choices = list(mongo.db.food_choices.find().sort([
         ("starter", 1),
         ("main", 1),
         ("dessert", 1)]))
+    if request.method == "POST":
+        guest_details = {
+            "user_id": request.form.get("user_id"),
+            "full_name": request.form.get("full_name"),
+            "attending_pre_meet": request.form.get("attending_pre_meet"),
+            "attending_wedding": request.form.get("attending_wedding"),
+            "starter": request.form.get("starter"),
+            "main": request.form.get("main"),
+            "dessert": request.form.get("dessert")
+            }
+        mongo.db.guests.update({"_id": ObjectId(guest_id)}, guest_details)
+        flash("Guest succesfully edited!")
+        guest_details = mongo.db.guests.find_one({
+            "full_name": request.form.get("full_name").lower(),
+            "user_id": request.form.get("user_id")})
+        count_guests = guests.count()
+        return redirect(url_for(
+            "dashboard", user_id=user_id,
+            count_guests=count_guests, food_choices=food_choices))
+
     return render_template(
         "/components/forms/guest-details.html",
-        guest=guest, guest_id=guest_id, food_choices=food_choices, user_id=user_id)
-          
+        guest=guest, guest_id=guest_id,
+        food_choices=food_choices, user_id=user_id)
+
 
 @app.route("/logout")
 def logout():
