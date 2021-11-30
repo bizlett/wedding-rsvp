@@ -58,7 +58,8 @@
                                 <strong>Dessert:</strong> {{ guest.dessert }}<br>
                               </p>
                               <a href="{{ url_for('edit_guest', guest_id=guest._id) }}" class="btn btn-default btn-sm">Edit Guest</a>
-                              <a href="{{ url_for('delete_guest', guest_id=guest._id, user_id=user_id) }}" class="btn btn-danger btn-sm">Delete Guest</a>
+                              <a data-toggle="modal" data-target="#myModal" title="Delete guest" class="btn btn-danger btn-sm">Delete Guest</a>
+                              {% include 'components/modals/delete-guest.html' %}
                             </div>
                         </div>
                             {% endfor %}  

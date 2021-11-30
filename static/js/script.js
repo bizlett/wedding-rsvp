@@ -4,7 +4,7 @@ $('select option').filter(function () {
     $.trim(this.text).length == 0;})
     .remove();
 
-// Tooltips Initialization
 $(document).ready(function () {
     $('.tooltipped').tooltip();
+    $('#myModal').modal();
 })
