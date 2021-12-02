@@ -58,7 +58,7 @@ def register():
                 "add_guest", user_id=user_id))
 
     return render_template(
-        "/components/forms/authentication.html", register=True)
+        "/pages/authentication.html", register=True)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -89,7 +89,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("/components/forms/authentication.html")
+    return render_template("/pages/authentication.html")
 
 
 @app.route("/dashboard/<user_id>", methods=["GET", "POST"])

@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+    {% if register == True %}
+
+    <div class="container" id="register">
+        {% include 'components/messages/messages.html' %}
+        {% include 'components/forms/authentication-form.html' %}
+    </div>
+
+    {% else %}
+
+    <div class="container" id="login">
+        {% include 'components/messages/messages.html' %}
+        {% include 'components/forms/authentication-form.html' %}
+    </div>
+
+    {% endif %}
+{% endblock %}
