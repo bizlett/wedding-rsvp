@@ -136,7 +136,7 @@ def add_guest(user_id):
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
-        "/components/forms/guest-details.html",
+        "/components/forms/guest-details-form.html",
         user_id=user_id, food_choices=food_choices, add=True)
 
 
@@ -175,7 +175,7 @@ def edit_guest(guest_id):
             count_guests=count_guests, food_choices=food_choices))
 
     return render_template(
-        "/components/forms/guest-details.html",
+        "/components/forms/guest-details-form.html",
         guest=guest, guest_id=guest_id,
         food_choices=food_choices, user_id=user_id)
 
