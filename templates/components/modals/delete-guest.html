@@ -1,5 +1,4 @@
-<div class="modal fade delete-guest-modal" id="guest-modal-{{ guest._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
+<div class="modal fade delete-guest-modal" id="delete-guest-{{ guest._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,7 +14,7 @@
         <button href="{{ url_for('dashboard', user_id=user_id) }}" type="button" class="btn btn-secondary" data-dismiss="modal">
           Go Back
         </button>
-        <button href="{{ url_for('delete_guest', guest_id=guest._id, user_id=user_id) }}" type="button" class="btn btn-primary">
+        <button href="{{ url_for('delete_guest', user_id=user_id, guest_id=guest._id) }}" type="button" class="btn btn-primary">
           Delete Guest
         </button>
       </div>

@@ -60,7 +60,7 @@
                                 <strong>Dessert:</strong> {{ guest.dessert }}<br>
                               </p>
                               <a href="{{ url_for('edit_guest', guest_id=guest._id) }}" class="btn btn-default btn-sm">Edit Guest</a>
-                              <a href=".delete-guest-modal" data-toggle="modal" data-target=".delete-guest-modal" title="Delete guest" class="btn btn-danger btn-sm">Delete Guest</a>
+                              <a href="#delete-guest-{{ guest._id }}" data-toggle="modal" data-target="#delete-guest-{{ guest._id }}" title="Delete guest" class="btn btn-danger btn-sm">Delete Guest</a>
                               {% include 'components/modals/delete-guest.html' %}
                             </div>
                         </div>

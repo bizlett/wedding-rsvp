@@ -186,15 +186,14 @@ def delete_guest(user_id, guest_id):
     Allows the user to delete a guest
     Redirects the user back to the dashboard
     """
-    guests = mongo.db.guests.find({"user_id": user_id})
+    # guests = mongo.db.guests.find({"user_id": user_id})
     mongo.db.guests.remove({'_id': ObjectId(guest_id)})
-    guest = mongo.db.guests.find_one({"user_id": user_id})
-    guest_id = guest["_id"]
-    count_guests = guests.count()
+    # guest = mongo.db.guests.find_one({"user_id": user_id})
+    # guest_id = guest["_id"]
+    # count_guests = guests.count()
     flash("Guest successfully deleted")
     return redirect(url_for(
-        "dashboard", user_id=user_id, guest_id=guest_id,
-        count_guests=count_guests))
+        "dashboard", user_id=user_id, guest_id=guest_id))
 
 
 @app.route("/logout")
