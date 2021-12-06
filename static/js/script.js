@@ -4,7 +4,9 @@ $('select option').filter(function () {
     $.trim(this.text).length == 0;})
     .remove();
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.tooltipped').tooltip();
-    $('#myModal').modal();
+    $('#myModal').modal(
+        e.preventDefault()
+        );
 })
