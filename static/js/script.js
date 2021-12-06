@@ -6,7 +6,7 @@ $('select option').filter(function () {
 
 $(document).ready(function() {
     $('.tooltipped').tooltip();
-    $('#myModal').modal(
+    $('.delete-guest-modal').modal(
         e.preventDefault()
         );
 })
