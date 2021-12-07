@@ -24,9 +24,9 @@
                 {% if add != True %}
                     {% if guest.attending_pre_meet == "on" %}
                         <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input" checked>
-                    {% else %}
-                        <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">
                     {% endif %}
+                {% else %}
+                    <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">
                 {% endif %}
                 <label class="custom-control-label" for="attending_pre_meet">Pre-meet - 7 May 2022, 1pm - 5pm</label>
             </div>
@@ -34,9 +34,9 @@
                 {% if add != True %}
                     {% if guest.attending_wedding == "on" %}
                         <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input" checked>
-                        {% else %}
-                        <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input">
                     {% endif %}
+                {% else %}
+                    <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input">
                 {% endif %}
                 <label class="custom-control-label" for="attending_wedding">Wedding Day - 21 May 2022, 2pm - midnight</label>
             </div>
