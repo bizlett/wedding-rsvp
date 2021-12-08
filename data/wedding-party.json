@@ -3,98 +3,98 @@
       "name": "Bizzy",
       "tagline": "The Bride",
       "description": "Less 'BrideZilla', more 'Anxious Hostess with the Mostest'. When you see her on the day, make sure her glass is topped up and tell her everything is fine (even if it isn't)",
-      "image_source": "url(../images/biz.jpg)",
+      "image_source": "../static/images/bizzy.jpeg",
       "alt_text": "bizzy the bride"
     },
     {
       "name": "Chris",
       "tagline": "The Groom",
       "description": "No glass topping up required with this one. Keep an eye out for a special appearance from his alias, 'Snake Hips Chris', on the dancefloor at the end of the night.",
-      "image_source": "url(../images/chris.jpg)",
+      "image_source": "../static/images/chris.jpeg",
       "alt_text": "chris the groom"
     },
     {
       "name": "Jenny",
       "tagline": "Bridesmaid",
       "description": "Is there a greater honour than having your sister as your bridesmaid? Bizzy didn't think so. You'll not miss Jenny. She's the dark hair, brown eyed version of the bride - though obviously won't be wearing a wedding dress. We hope.",
-      "image_source": "url(../images/jenny.jpg)",
+      "image_source": "../static/images/jenny.jpeg",
       "alt_text": "jenny the bridesmaid"
     },
     {
         "name": "Jess",
         "tagline": "Bridesmaid",
         "description": "Sisters unite for Team Bridesmaid! Jess is Chris's actual sister and Bizzy's to-be sister. Fun fact, use a face swap app on Jess and Chris and combined they look like Dave Grohl. Which only makes Bizzy collectively appreciate them more.",
-        "image_source": " url(../images/jess.jpg)",
+        "image_source": "../static/images/jess.jpeg",
         "alt_text": "jess the bridesmaid"
       },
     {
       "name": "Ben",
       "tagline": "Best Man",
       "description": "Long time friend from primary school, Chris would trust Ben with his life... But not with a map because Ben is a terrible navigator. Not all heroes wear capes - some wear kilts. And that basically tells you everything you need to know about Ben.",
-      "image_source": "url(../images/ben.jpg)",
+      "image_source": "../static/images/ben.jpeg",
       "alt_text": "ben the best man"
     },
     {
       "name": "Mo",
       "tagline": "Best Man",
       "description": "Mo is always on hand with an opinion - whether you want it or not. He makes for a great conversationalist though so if he's on your table for the wedding breakfast you'll be sure to enjoy.",
-      "image_source": "url(../images/mo.jpg)",
+      "image_source": "../static/images/mo.jpeg",
       "alt_text": "mo the best man"
     },
     {
       "name": "Dennis",
       "tagline": "Father of the Bride",
       "description": "Easily recognisable character with a big sense of humour and fun, you'll be sure to spot Dennis from across the room. If his speech doesn't you have in tears, his jokes certainly will.",
-      "image_source": "url(../images/dennis.jpg)",
+      "image_source": "../static/images/dennis.jpeg",
       "alt_text": "dennis the father of the bride"
     },
     {
       "name": "Chrissie",
       "tagline": "Mother of the Bride",
       "description": "Make sure you're on your best behaviour with the 'Executive Mother'... Because as soon as she sees Chris in his suit, she sure won't be.",
-      "image_source": "url(../images/chrissie.jpg)",
+      "image_source": "../static/images/chrissie.jpeg",
       "alt_text": "chrissie the mother of the bride"
     },
     {
       "name": "Jane",
       "tagline": "Mother of the Groom",
       "description": "Wardrobe malfunction? Buttonhole come loose? Career / relationship / life a mess? Don't worry, Jane will make it right. There is literally nothing this woman cannot do.",
-      "image_source": "url(../images/jane.jpg)",
+      "image_source": "../static/images/jane.jpeg",
       "alt_text": "jane the mother of the groom"
     },
     {
       "name": "Warwick",
       "tagline": "Father of the Groom",
       "description": "Wondering who the calm and assured man casually chatting to everyone is? That'll be the groom's Dad, personifying the exact opposite of how Chris will be feeling on the day.",
-      "image_source": "url(../images/warwick.jpg)", 
+      "image_source": "../static/images/warwick.jpeg", 
       "alt_text": "warwick the father of the groom"
     },
     {
       "name": "Anne",
       "tagline": "Aunt of the Groom",
       "description": "Everyone's favourite Aunty! Yep, yours too. (Just wait...)",
-      "image_source": "url(../images/anne.jpg)",
+      "image_source": "../static/images/anne.jpeg",
       "alt_text": "anne the aunt of the groom"
     },
     {
       "name": "Tony",
       "tagline": "Partner of the Bride's Mother",
       "description": "You can't not like Tony. No really, we challenge you to try. See, you already can't and you haven't even met him yet.",
-      "image_source": "url(../images/tony.jpg)",
+      "image_source": "../static/images/tony.jpeg",
       "alt_text": "tony the partner of the bride's mother"
     },
     {
       "name": "Michael",
       "tagline": "Partner of Bridesmaid Jenny",
       "description": "Are you a fan of good, clean, inclusive and inoffensive humour? Best steer clear of Michael in that case.",
-      "image_source": "url(../images/michael.jpg)",
+      "image_source": "../static/images/michael.jpeg",
       "alt_text": "michael the partner of the bridesmaid jenny"
     },
     {
       "name": "Ollie",
       "tagline": "Partner of Bridesmaid Jess",
       "description": "Bizzy coined the word 'Ollie-zontal' especially for Ollie because he's so laid back he's practically lying down. All round solid guy and good egg. Its two enthusiastic thumbs up from us.",
-      "image_source": "url(../images/ollie.jpg)",
+      "image_source": "../static/images/ollie.jpeg",
       "alt_text": "michael the partner of the bridesmaid jess"
     }
   ]
