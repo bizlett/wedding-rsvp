@@ -1,4 +1,5 @@
 import os
+import json
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -24,6 +25,18 @@ def home():
     Loads the homepage
     """
     return render_template("/pages/home.html")
+
+
+@app.route("/wedding-party.html")
+def wedding_party():
+    """
+    Loads the wedding party page
+    """
+    wedding_party = []
+    with open("data/wedding-party.json", "r") as wedding_party_data:
+        wedding_party = json.load(wedding_party_data)
+    return render_template(
+        "/pages/wedding-party.html", wedding_party=wedding_party)
 
 
 @app.route("/register", methods=["GET", "POST"])
