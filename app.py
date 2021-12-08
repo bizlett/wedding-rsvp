@@ -221,6 +221,34 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/error")
+def test_error():
+    """
+    Test to view the custom error page in the event of an error
+    """
+    return render_template('pages/error.html')
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    """
+    Renders error.html with 404 message
+    """
+    error_message = str(error)
+    return render_template('pages/error.html',
+                           error_message=error_message), 404
+
+
+@app.errorhandler(500)
+def server_error(error):
+    """
+    Renders error.html with 500 message.
+    """
+    error_message = str(error)
+    return render_template('pages/error.html',
+                           error_message=error_message), 500
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

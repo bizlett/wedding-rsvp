@@ -22,8 +22,8 @@ aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Tog
             aria-haspopup="true" aria-expanded="false">Demo
         </a>
         <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-            <a class="dropdown-item" href="#">Custom 404 error</a>
-            <a class="dropdown-item" href="#">Custom 500 error</a>
+            <a class="dropdown-item" href="{{ url_for('test_error') }}">Custom 404 error</a>
+            <a class="dropdown-item" href="{{ url_for('test_error') }}">Custom 500 error</a>
         </div>
         </li>
     </ul>
