@@ -101,6 +101,18 @@ body {
   z-index: -1;
 }
 
+
+/* Links and Headers */
+
+.back-to-top {
+  padding: 2rem;
+}
+
+#wedding-party-header {
+  padding: 2rem;
+}
+
+
 /* Buttons & Icons */
 
 i {
@@ -111,11 +123,10 @@ i {
 
 /* Block dividers */
 
-.hr-heading {
+.divider {
   border: 1px solid #e4ebee;
-  width: 80%;
-  align-content: center;
-  margin: 2rem 0;
+  width: 90%;
+  text-align: center;
 }
 
 .hr-short {
@@ -130,13 +141,12 @@ i {
 
 .flashes h4 {
   line-height: 2;
+
 }
 
 
-/* RSVP form */
+/* Dashboard */
 
-
-/* View Rsvp */
 .card {
   margin: 10px;
   width: 25rem;
@@ -146,8 +156,26 @@ i {
   font-size: 1rem;
 }
 
+
 /* Authentication */
 
 .pattern {
   font-size: .8rem;
+}
+
+
+/* Wedding Party */
+
+.wedding-party-col {
+  text-align: center;
+  height: 15rem;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.wedding-party-member {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+  padding: 1rem;
 }

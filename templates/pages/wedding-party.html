@@ -1,52 +1,36 @@
 {% extends "layout/base.html" %}
 {% block content %}
-    <div class="row">
+    <div class="row text-center">
         <div class="col-12">
-            <h2 id="wedding-party">Meet the Wedding Party</h2>
+            <h2 id="wedding-party-header">Meet the Wedding Party</h2>
         </div>
     </div>
 
     {% for member in wedding_party %}
 
         <div class="row">
+            <div class="col-md-5 col-sm-12 wedding-party-col">
+                <img src="{{ member.image_source }}" alt="{{ member.alt_text }}" class="wedding-party-member">
+            </div>
+            <div class="col-md-7 col-sm-12 wedding-party-col">
+                <h3>{{ member.name }}</h3>
+                <h5>{{ member.tagline }}</h5>
+                <p>{{ member.description }}</p>
+            </div>
+        </div>    
 
-            {% if loop.index % 2 != 0 %}
-
-                <div class="col-md-7">
-                    <h3>{{ member.name }}</h3>
-                    <h5>{{ member.tagline }}</h5>
-                    <p>{{ member.description }}</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="{{ member.image_source }}" alt="{{ member.alt_text }}" class="">
-                </div>
-                
-            {% else %}
-
-                <div class="col-md-5">
-                    <img src="{{ member.image_source }}" alt="{{ member.alt_text }}" class="">
-                </div>
-                <div class="col-md-7">
-                    <h3>{{ member.name }}</h3>
-                    <h5>{{ member.tagline }}</h5>
-                    <p>{{ member.description }}</p>
-                </div>
-
-            {% endif %}
-
-        </div>
 
         {% if loop.index != loop.length %}
 
-            <hr class="">
+            <hr class="divider">
 
         {% endif %}
 
     {% endfor %}
     
-    <div class="row">  
+    <div class="row text-center">  
         <div class="col-12">
-            <h5><a href="#wedding-party" class="text-center">Back to top</a></h5>
+            <h5 class="back-to-top"><a href="#wedding-party-header">Back to top</a></h5>
         </div>
     </div>
 
