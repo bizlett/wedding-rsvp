@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400&display=swap');
+
 html {
   scroll-padding-top: 5.8rem;
   scroll-behavior: smooth;
@@ -97,11 +99,15 @@ body {
 
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
 
   margin-top: -5rem;
   z-index: -1;
+}
+
+#hero-card-title {
+  font-family: Pacifico;
 }
 
 
