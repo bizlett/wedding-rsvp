@@ -7,7 +7,7 @@
     <form class="p-5" action="{{ url_for('edit_guest', guest_id=guest_id, user_id=user_id) }}" method="POST"> 
 {% endif %}
     <div class="row">
-        <div class="col-md-8 mx-auto p-5">
+        <div class="col-md-8 mx-auto">
             <p class="h3 mb-4 text-center">
                 {% if add == True %} Add Guest {% else %} Edit Guest {% endif %}
             </p>
