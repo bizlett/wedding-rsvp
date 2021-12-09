@@ -118,6 +118,22 @@ def dashboard(user_id):
         guests=guests, count_guests=count_guests)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """
+    User can search for guest by name
+    """
+    query = request.form.get("query")
+    search_results = mongo.db.guests.find({"$text": {"$search": query}})
+    user = mongo.db.users.find_one()
+    user_id = user["_id"]
+    guests = mongo.db.guests.find({"user_id": user_id})
+    count_guests = guests.count()
+    return render_template(
+        "/pages/dashboard.html", search_results=search_results,
+        user_id=user_id, guests=guests, count_guests=count_guests)
+
+
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
 def add_guest(user_id):
     """
