@@ -124,14 +124,15 @@ def search():
     User can search for guest by name
     """
     query = request.form.get("query")
-    search_results = mongo.db.guests.find({"$text": {"$search": query}})
+    search_results = mongo.db.guests.find({
+        "$text": {"$search": query}}, allow_partial_results=True)
+    guest_id = guest[_id]
     user = mongo.db.users.find_one()
     user_id = user["_id"]
     guests = mongo.db.guests.find({"user_id": user_id})
-    count_guests = guests.count()
     return render_template(
-        "/pages/dashboard.html", search_results=search_results,
-        user_id=user_id, guests=guests, count_guests=count_guests)
+        "/pages/search-results.html", search_results=search_results,
+        user_id=user_id, guests=guests, guest_id=guest_id)
 
 
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
