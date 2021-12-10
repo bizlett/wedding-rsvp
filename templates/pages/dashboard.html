@@ -3,25 +3,7 @@
 
 <h3 class="center-align">{{ username }}</h3>
 
-    <div class="row card-panel">
-        <form action="{{ url_for('search') }}" method="POST" class="col s12">
-            <div class="row center-align">
-                <div class="input-field col">
-                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-                    <input type="text" name="query" id="query" minlength="2" class="validate" placeholder="Search guest by name" required>
-                </div>
-                <div class="col">
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
-                        Search for Guest
-                    </button>
-                    <a href="{{ url_for('add_guest', user_id=user_id) }}" title="Add Guest" aria-label="Add Guest"
-                    class="btn btn-warning">Add Guest</a>
-                    <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" title="View All Guests" aria-label="View All Guests"
-                    class="red btn text-shadow">View All Guests</a>
-                </div>
-            </div>
-        </form>
-    </div>
+    {% include "components/inputs-and-buttons/dashboard-controls.html" %}
 
     {% if count_guests == 0 %}
     <div class="container">
