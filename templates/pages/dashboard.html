@@ -7,33 +7,27 @@
     {% include "components/inputs-and-buttons/dashboard-controls.html" %}
 
     {% if count_guests == 0 %}
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card center-align text-dark">
-                        <div class="card-body">
-                            <h3 class="card-title p-3">No Results</h3>
-                            <p>
-                                You have no guests by that name.
-                            </p>
-                            <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="red btn text-shadow">Return to dashboard</a>
-                        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-12">
+                <div class="card center-align text-dark">
+                    <div class="card-body">
+                        <h3 class="card-title p-3">No Results</h3>
+                        <p>
+                            You have no guests by that name.
+                        </p>
+                        <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-info btn-sm">Return to dashboard</a>
                     </div>
                 </div>
             </div>
         </div>
 
     {% else %}
-    <div class="container">
-        <!-- {% include 'components/messages/messages.html' %} -->
-        
         <div class="row d-flex justify-content-center">
-            <form action="{{ url_for('dashboard', guest_id=guest_id, user_id=user_id)}}" method="POST" class="row">
-                <div class="col text-dark" id="">
+            <form action="{{ url_for('dashboard', guest_id=guest_id, user_id=user_id)}}" method="POST">
+                <div class="col-12">
                     {% if count_guests >= 1 %}
                         {% for guest in guests %}
-                        <div class="card">
+                        <div class="card center-align text-dark">
                             <div class="card-body">
                               <h5 class="card-title">{{ guest.full_name }}</h5>
                               <p>
@@ -64,7 +58,6 @@
                 </div>
             </form>
         </div>
-    </div>
     {% endif %} 
 
 {% endblock %}

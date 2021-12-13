@@ -162,8 +162,10 @@ i {
 /* Dashboard */
 
 .card {
-  margin: 10px;
-  width: 25rem;
+  width: 20rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .guest-card-i {
