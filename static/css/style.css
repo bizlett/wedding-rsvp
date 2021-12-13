@@ -152,9 +152,15 @@ i {
 
 /* Flashed messages */
 
-.flashes h4 {
+.flashes {
+  padding: 1rem;
+  margin: 1rem;
   line-height: 2;
-
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  background-color: #009688;
 }
 
 

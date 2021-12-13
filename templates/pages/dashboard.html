@@ -1,13 +1,13 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
-<h3 class="center-align">{{ username }}</h3>
+<h3 class="center-align">{{ username }}'s Profile</h3>
 
+    {% include 'components/messages/messages.html' %}
     {% include "components/inputs-and-buttons/dashboard-controls.html" %}
 
     {% if count_guests == 0 %}
     <div class="container">
-        {% include 'components/messages/messages.html' %}
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -26,7 +26,7 @@
 
     {% else %}
     <div class="container">
-        {% include 'components/messages/messages.html' %}
+        <!-- {% include 'components/messages/messages.html' %} -->
         
         <div class="row d-flex justify-content-center">
             <form action="{{ url_for('dashboard', guest_id=guest_id, user_id=user_id)}}" method="POST" class="row">
