@@ -214,3 +214,26 @@ i {
 .modal-footer {
   justify-content: center;
 }
+
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+  .hero-image {
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/us.jpg) no-repeat left fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    padding-top: 5rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    margin-top: -5px;
+    z-index: -1; 
+  }
+}
