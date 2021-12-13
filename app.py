@@ -129,7 +129,6 @@ def search():
     guests = mongo.db.guests.find({
         "$text": {"$search": query}}, allow_partial_results=True)
     count_guests = guests.count()
-        
     return render_template(
         "/pages/dashboard.html", user_id=user_id,
         guests=guests, count_guests=count_guests)
@@ -210,7 +209,7 @@ def edit_guest(guest_id):
         food_choices=food_choices, user_id=user_id)
 
 
-@app.route("/delete_guest/<user_id>/<guest_id>")
+@app.route("/delete_guest/<user_id>/<guest_id>", methods=["GET", "DELETE"])
 def delete_guest(user_id, guest_id):
     """
     Allows the user to delete a guest
@@ -218,8 +217,8 @@ def delete_guest(user_id, guest_id):
     """
     # guests = mongo.db.guests.find({"user_id": user_id})
     mongo.db.guests.remove({'_id': ObjectId(guest_id)})
-    # guest = mongo.db.guests.find_one({"user_id": user_id})
-    # guest_id = guest["_id"]
+    guest = mongo.db.guests.find_one({"user_id": user_id})
+    guest_id = guest["_id"]
     # count_guests = guests.count()
     flash("Guest successfully deleted")
     return redirect(url_for(

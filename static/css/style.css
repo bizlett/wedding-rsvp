@@ -193,3 +193,17 @@ i {
   border-radius: 50%;
   padding: 1rem;
 }
+
+/* Modals */
+
+#more-info-close {
+  color: #fff;
+}
+
+.info-modal {
+  background-color: #016464;
+}
+
+.modal-footer {
+  justify-content: center;
+}
