@@ -131,6 +131,11 @@ i {
   margin: 1rem;
 }
 
+.footer-icon {
+  font-size: 1rem;
+  margin: 0;
+}
+
 /* Block dividers */
 
 .divider {
@@ -235,5 +240,12 @@ i {
 
     margin-top: -5px;
     z-index: -1; 
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .guest-details-button {
+    padding: 0.5rem 1.3rem;
+    font-size: .64rem;
   }
 }
