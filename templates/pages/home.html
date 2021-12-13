@@ -2,17 +2,17 @@
 {% block content %}
 
     <!-- Jumbotron -->
-    <section class="hero-image">
-        <div class="text-white text-center py-5">
-            <div class="py-5">
+    <section id="hero-card" class="hero-image">
+        <div class="row text-white text-center py-5">
+            <div class="col-12 py-5">
         
                 <!-- Content -->
                 <h1 id="hero-card-title" class="card-title my-4 py-2">We're getting married!</h1>
                 <p class="mb-4 pb-2 px-md-5 mx-md-5">
                     And we'd love you to be a part of it.
                 </p>
-                <a class="btn peach-gradient">Dates & Info</a>
-                <a class="btn peach-gradient">RSVP</a>
+                <a href="#dates-section" class="btn peach-gradient">Dates & Info</a>
+                <a href="{{ url_for('register') }}" class="btn peach-gradient">RSVP</a>
     
             </div>
         </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="row center-align">
             <div class="col-12">
-                <a class="btn peach-gradient">More info</a>
+                <a id="dates-more-info-button" class="btn peach-gradient">More info</a>
             </div>
         </div>
     </section>
