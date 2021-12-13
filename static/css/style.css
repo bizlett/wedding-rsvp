@@ -171,6 +171,9 @@ i {
 
 #query{
   width: -webkit-fill-available;
+  border-radius: 3px;
+  font-family: 'Roboto';
+  border: none;
 }
 
 /* Authentication */
