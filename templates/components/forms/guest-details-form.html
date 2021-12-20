@@ -24,6 +24,8 @@
                 {% if add != True %}
                     {% if guest.attending_pre_meet == "on" %}
                         <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input" checked>
+                        {% else %}
+                        <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">    
                     {% endif %}
                 {% else %}
                     <input type="checkbox" name="attending_pre_meet" id="attending_pre_meet" class="custom-control-input">
@@ -34,6 +36,8 @@
                 {% if add != True %}
                     {% if guest.attending_wedding == "on" %}
                         <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input" checked>
+                        {% else %}
+                        <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input">
                     {% endif %}
                 {% else %}
                     <input type="checkbox" name="attending_wedding" id="attending_wedding" class="custom-control-input">

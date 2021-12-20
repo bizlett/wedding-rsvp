@@ -169,7 +169,7 @@ def add_guest(user_id):
 
     return render_template(
         "/components/forms/guest-details-form.html",
-        user_id=user_id, food_choices=food_choices, add=True)
+        user_id=user_id, food_choices=food_choices, user=user, add=True)
 
 
 @app.route("/edit-guest/<guest_id>", methods=["GET", "POST"])
@@ -204,7 +204,7 @@ def edit_guest(guest_id):
         count_guests = guests.count()
         return redirect(url_for(
             "dashboard", user_id=user_id,
-            count_guests=count_guests, food_choices=food_choices))
+            count_guests=count_guests, food_choices=food_choices, user=user))
 
     return render_template(
         "/components/forms/guest-details-form.html",
