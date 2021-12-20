@@ -113,9 +113,10 @@ def dashboard(user_id):
     """
     guests = mongo.db.guests.find({"user_id": user_id})
     count_guests = guests.count()
+    user = mongo.db.users.find_one()
     return render_template(
         "/pages/dashboard.html", user_id=user_id,
-        guests=guests, count_guests=count_guests)
+        guests=guests, count_guests=count_guests, user=user)
 
 
 @app.route("/search", methods=["GET", "POST"])

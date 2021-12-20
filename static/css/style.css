@@ -85,6 +85,10 @@ body {
   margin: 0;
 }
 
+.profile-name {
+  background-color: #009688;
+}
+
 /* Jumbotron & Hero */
 
 .hero-image {
