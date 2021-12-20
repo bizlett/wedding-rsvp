@@ -96,14 +96,14 @@
                     {% endif %}
             </select>
             <div class="col d-flex justify-content-center">
-                <button class="btn btn-warning guest-details-button" type="submit">
+                <button class="btn btn-info guest-details-button" type="submit">
                     {% if add == True %} 
                         Add Guest
                     {% else %} 
                         Edit Guest
                     {% endif %}
                 </button>
-                <button class="btn btn-info guest-details-button" href="{{ url_for('dashboard', user_id=user_id) }}">Cancel</button>
+                <button class="btn btn-danger guest-details-button" href="{{ url_for('dashboard', user_id=user_id) }}">Cancel</button>
             </div>
         </div>
     </div>

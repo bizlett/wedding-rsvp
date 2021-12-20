@@ -5,11 +5,11 @@
                 <input type="text" name="query" id="query" minlength="2" class="validate" placeholder="Search guest by name" required>
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-info btn-sm">
+                <button type="submit" class="btn btn-warning btn-sm">
                     Search for Guest
                 </button>
                 <a href="{{ url_for('add_guest', user_id=user_id) }}" title="Add Guest" aria-label="Add Guest"
-                class="btn btn-sm btn-warning">Add Guest</a>
+                class="btn btn-sm btn-info">Add Guest</a>
                 <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" title="View All Guests" aria-label="View All Guests"
                  class="btn btn-default btn-sm">View All Guests</a>
             </div>

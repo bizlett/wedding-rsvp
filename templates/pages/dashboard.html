@@ -13,7 +13,7 @@
                         <p>
                             You have no guests by that name.
                         </p>
-                        <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-info btn-sm">Return to dashboard</a>
+                        <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-default btn-sm">Return to dashboard</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                 <strong>Main:</strong> {{ guest.main }}<br>
                                 <strong>Dessert:</strong> {{ guest.dessert }}<br>
                               </p>
-                              <a href="{{ url_for('edit_guest', guest_id=guest._id) }}" class="btn btn-default btn-sm">Edit Guest</a>
+                              <a href="{{ url_for('edit_guest', guest_id=guest._id) }}" class="btn btn-info btn-sm">Edit Guest</a>
                               <a href="#delete-guest-{{ guest._id }}" data-toggle="modal" data-target="#delete-guest-{{ guest._id }}" title="Delete guest" class="btn btn-danger btn-sm">Delete Guest</a>
                               {% include 'components/modals/delete-guest.html' %}
                             </div>

@@ -141,6 +141,7 @@ def add_guest(user_id):
     """
     User can add a guest
     """
+    user = mongo.db.users.find_one()
     food_choices = list(mongo.db.food_choices.find().sort([
         ("starter", 1),
         ("main", 1),
@@ -164,7 +165,7 @@ def add_guest(user_id):
         count_guests = guests.count()
         return redirect(url_for(
             "dashboard", user_id=user_id,
-            count_guests=count_guests, food_choices=food_choices))
+            count_guests=count_guests, food_choices=food_choices, user=user))
 
     return render_template(
         "/components/forms/guest-details-form.html",
@@ -208,7 +209,7 @@ def edit_guest(guest_id):
     return render_template(
         "/components/forms/guest-details-form.html",
         guest=guest, guest_id=guest_id,
-        food_choices=food_choices, user_id=user_id)
+        food_choices=food_choices, user_id=user_id, user=user)
 
 
 @app.route("/delete_guest/<user_id>/<guest_id>", methods=["GET", "DELETE"])
@@ -218,13 +219,14 @@ def delete_guest(user_id, guest_id):
     Redirects the user back to the dashboard
     """
     # guests = mongo.db.guests.find({"user_id": user_id})
+    user = mongo.db.users.find_one()
     mongo.db.guests.remove({'_id': ObjectId(guest_id)})
     guest = mongo.db.guests.find_one({"user_id": user_id})
     guest_id = guest["_id"]
     # count_guests = guests.count()
     flash("Guest successfully deleted")
     return redirect(url_for(
-        "dashboard", user_id=user_id, guest_id=guest_id))
+        "dashboard", user_id=user_id, guest_id=guest_id, user=user))
 
 
 @app.route("/logout")

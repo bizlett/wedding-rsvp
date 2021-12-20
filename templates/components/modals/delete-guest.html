@@ -12,10 +12,10 @@
         Are you sure you wish to permanently delete {{ guest.full_name }}? 
       </div>
       <div class="modal-footer">
-        <button href="{{ url_for('dashboard', user_id=user_id) }}" type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button href="{{ url_for('dashboard', user_id=user_id) }}" type="button" class="btn btn-default" data-dismiss="modal">
           Go Back
         </button>
-        <button href="{{ url_for('delete_guest', user_id=user_id, guest_id=guest_id) }}" type="button" class="btn btn-primary">
+        <button href="{{ url_for('delete_guest', user_id=user_id, guest_id=guest_id) }}" type="button" class="btn btn-danger">
           Delete Guest
         </button>
       </div>
