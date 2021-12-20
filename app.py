@@ -33,11 +33,12 @@ def wedding_party():
     """
     Loads the wedding party page
     """
+    user = mongo.db.users.find_one()
     wedding_party = []
     with open("data/wedding-party.json", "r") as wedding_party_data:
         wedding_party = json.load(wedding_party_data)
     return render_template(
-        "/pages/wedding-party.html", wedding_party=wedding_party)
+        "/pages/wedding-party.html", wedding_party=wedding_party, user=user)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -246,7 +247,8 @@ def test_error():
     """
     Test to view the custom error page in the event of an error
     """
-    return render_template('pages/error.html')
+    user = mongo.db.users.find_one()
+    return render_template('pages/error.html', user=user)
 
 
 @app.errorhandler(404)
@@ -254,9 +256,10 @@ def page_not_found(error):
     """
     Renders error.html with 404 message
     """
+    user = mongo.db.users.find_one()
     error_message = str(error)
     return render_template('pages/error.html',
-                           error_message=error_message), 404
+                           error_message=error_message, user=user), 404
 
 
 @app.errorhandler(500)
@@ -264,9 +267,10 @@ def server_error(error):
     """
     Renders error.html with 500 message.
     """
+    user = mongo.db.users.find_one()
     error_message = str(error)
     return render_template('pages/error.html',
-                           error_message=error_message), 500
+                           error_message=error_message, user=user), 500
 
 
 if __name__ == "__main__":
