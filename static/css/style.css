@@ -210,6 +210,12 @@ i {
   padding: 1rem;
 }
 
+/* Footer */
+
+footer {
+  margin-top: 5rem;
+}
+
 /* Modals */
 
 #more-info-close {

@@ -24,7 +24,8 @@ def home():
     """
     Loads the homepage
     """
-    return render_template("/pages/home.html")
+    user = mongo.db.users.find_one()
+    return render_template("/pages/home.html", user=user)
 
 
 @app.route("/wedding-party.html")
@@ -132,7 +133,7 @@ def search():
     count_guests = guests.count()
     return render_template(
         "/pages/dashboard.html", user_id=user_id,
-        guests=guests, count_guests=count_guests)
+        guests=guests, count_guests=count_guests, user=user)
 
 
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
