@@ -7,6 +7,6 @@ $('select option').filter(function () {
 $(document).ready(function () {
     $('.tooltipped').tooltip();
     $('.delete-guest-modal').modal(
-        e.preventDefault()
+        {"show": false}
     );
 })

@@ -1,4 +1,3 @@
-<form action="{{ url_for('delete_guest', user_id=user_id, guest_id=guest.id) }}" method="POST">
 <div class="modal fade delete-guest-modal" id="delete-guest-{{ guest._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -12,14 +11,13 @@
         Are you sure you wish to permanently delete {{ guest.full_name }}? 
       </div>
       <div class="modal-footer">
-        <button href="{{ url_for('dashboard', user_id=user_id) }}" type="button" class="btn btn-default" data-dismiss="modal">
+        <a href="#" type="submit" class="btn btn-default" data-dismiss="modal">
           Go Back
         </button>
-        <button href="{{ url_for('delete_guest', user_id=user_id, guest_id=guest_id) }}" type="button" class="btn btn-danger">
+        <a href="{{ url_for('delete_guest', user_id=user_id, guest_id=guest._id) }}" type="button" class="btn btn-danger">
           Delete Guest
-        </button>
+        </a>
       </div>
     </div>
   </div>
 </div>
-</form>
