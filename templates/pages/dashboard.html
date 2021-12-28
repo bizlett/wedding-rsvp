@@ -5,23 +5,23 @@
     {% include "components/inputs-and-buttons/dashboard-controls.html" %}
 
     {% if count_guests == 0 %}
-    <div class="dashboard-container">   
-        <div class="dashboard-content">
-            <div class="row d-flex justify-content-center">
-                <div class="col-12">
-                    <div class="card center-align text-dark">
-                        <div class="card-body">
-                            <h3 class="card-title p-3">No Results</h3>
-                            <p>
-                                You have no guests by that name.
-                            </p>
-                            <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-default btn-sm">Return to dashboard</a>
+        <div class="dashboard-container">   
+            <div class="dashboard-content">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <div class="card center-align text-dark">
+                            <div class="card-body">
+                                <h3 class="card-title p-3">No Results</h3>
+                                <p>
+                                    You have no guests by that name.
+                                </p>
+                                <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-default btn-sm">Return to dashboard</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     {% else %}
         <div class="dashboard-container">   
