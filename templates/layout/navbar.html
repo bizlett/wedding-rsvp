@@ -1,52 +1,55 @@
 <header>
-    <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark text-shadow">
-<a class="navbar-brand" href="/"><i class="fas fa-heart"></i></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-        <a class="nav-link" href="/#dates-section">Dates</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/#info-section">Info</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('wedding_party') }}">Wedding Party</a>
-            </li>
-        <li class="nav-item dropdown">
-        <a id="demo-dropdown" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Demo
-        </a>
-        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-            <a class="dropdown-item" href="{{ url_for('test_error') }}">Custom 404 error</a>
-            <a class="dropdown-item" href="{{ url_for('test_error') }}">Custom 500 error</a>
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark text-shadow">
+        <a class="navbar-brand" href="/"><i class="fas fa-heart"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/#dates-section">Dates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#info-section">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('wedding_party') }}">Wedding Party</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="demo-dropdown" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demo
+                    </a>
+                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="{{ url_for('test_error') }}">Custom 404 error</a>
+                        <a class="dropdown-item" href="{{ url_for('test_error') }}">Custom 500 error</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                {% if session.user_id %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                        aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item disabled profile-name">{{ user.username }}'s Profile</a>
+                        <a class="dropdown-item" href="{{ url_for('dashboard', user_id=session['user_id']) }}">View
+                            RSVP</a>
+                        <a class="dropdown-item" href="{{ url_for('add_guest', user_id=session['user_id']) }}">Add
+                            Guest</a>
+                        <a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a>
+                    </div>
+                    {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+                </li>
+                {% endif %}
+                </li>
+            </ul>
         </div>
-        </li>
-    </ul>
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-default"
-            aria-labelledby="navbarDropdownMenuLink-333">
-            {% if session.user_id %}
-                <a class="dropdown-item disabled profile-name">{{ user.username }}'s Profile</a>
-                <a class="dropdown-item" href="{{ url_for('dashboard', user_id=session['user_id']) }}">View RSVP</a>
-                <a class="dropdown-item" href="{{ url_for('add_guest', user_id=session['user_id']) }}">Add Guest</a>
-                <a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a>
-            {% else %}
-                <a class="dropdown-item" href="{{ url_for('login') }}">Log In</a>
-            {% endif %}
-        </div>
-        </li>
-    </ul>
-</div>
 
-</nav>
+    </nav>
 </header>
