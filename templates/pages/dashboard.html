@@ -5,56 +5,64 @@
     {% include "components/inputs-and-buttons/dashboard-controls.html" %}
 
     {% if count_guests == 0 %}
-        <div class="row d-flex justify-content-center">
-            <div class="col-12">
-                <div class="card center-align text-dark">
-                    <div class="card-body">
-                        <h3 class="card-title p-3">No Results</h3>
-                        <p>
-                            You have no guests by that name.
-                        </p>
-                        <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-default btn-sm">Return to dashboard</a>
+    <div class="dashboard-container">   
+        <div class="dashboard-content">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                    <div class="card center-align text-dark">
+                        <div class="card-body">
+                            <h3 class="card-title p-3">No Results</h3>
+                            <p>
+                                You have no guests by that name.
+                            </p>
+                            <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn btn-default btn-sm">Return to dashboard</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     {% else %}
-        <div class="row d-flex justify-content-center">
-            <form action="{{ url_for('dashboard', guest_id=guest_id, user_id=user_id)}}" method="POST">
-                <div class="col-12">
-                    {% if count_guests >= 1 %}
-                        {% for guest in guests %}
-                        <div class="card center-align text-dark">
-                            <div class="card-body">
-                              <h5 class="card-title">{{ guest.full_name }}</h5>
-                              <p>
-                                {% if guest.attending_pre_meet == "on" %}
-                                    Pre-meet<i class="fas fa-check-circle text-success guest-card-i tooltipped" data-position="right" data-tooltip="Attending"></i>
-                                    {% else %}
-                                        Pre-meet<i class="fas fa-times-circle text-danger guest-card-i tooltipped" data-position="right" data-tooltip="Not attending"></i>
+        <div class="dashboard-container">   
+            <div class="dashboard-content">
+                <div class="row d-flex justify-content-center">
+                    <form action="{{ url_for('dashboard', guest_id=guest_id, user_id=user_id)}}" method="POST">
+                        <div class="col-12">
+                            {% if count_guests >= 1 %}
+                                {% for guest in guests %}
+                                <div class="card center-align text-dark">
+                                    <div class="card-body">
+                                    <h5 class="card-title">{{ guest.full_name }}</h5>
+                                    <p>
+                                        {% if guest.attending_pre_meet == "on" %}
+                                            Pre-meet<i class="fas fa-check-circle text-success guest-card-i tooltipped" data-position="right" data-tooltip="Attending"></i>
+                                            {% else %}
+                                                Pre-meet<i class="fas fa-times-circle text-danger guest-card-i tooltipped" data-position="right" data-tooltip="Not attending"></i>
+                                        {% endif %}
+                                        {% if guest.attending_wedding == "on" %}
+                                            Wedding<i class="fas fa-check-circle text-success guest-card-i tooltipped" data-position="right" data-tooltip="Attending"></i>
+                                            {% else %}
+                                                Wedding<i class="fas fa-times-circle text-danger guest-card-i tooltipped" data-position="right" data-tooltip="Not attending"></i>
+                                        {% endif %}
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Starter:</strong> {{ guest.starter }}<br>
+                                        <strong>Main:</strong> {{ guest.main }}<br>
+                                        <strong>Dessert:</strong> {{ guest.dessert }}<br>
+                                    </p>
+                                    <a href="{{ url_for('edit_guest', guest_id=guest._id) }}" class="btn btn-info btn-sm">Edit Guest</a>
+                                    <a href="#delete-guest-{{ guest._id }}" data-toggle="modal" data-target="#delete-guest-{{ guest._id }}" title="Delete guest" class="btn btn-danger btn-sm">Delete Guest</a>
+                                    {% include 'components/modals/delete-guest.html' %}
+                                    </div>
+                                </div>
+                                    {% endfor %}  
+                            
                                 {% endif %}
-                                {% if guest.attending_wedding == "on" %}
-                                    Wedding<i class="fas fa-check-circle text-success guest-card-i tooltipped" data-position="right" data-tooltip="Attending"></i>
-                                    {% else %}
-                                        Wedding<i class="fas fa-times-circle text-danger guest-card-i tooltipped" data-position="right" data-tooltip="Not attending"></i>
-                                {% endif %}
-                            </p>
-                              <p class="card-text">
-                                <strong>Starter:</strong> {{ guest.starter }}<br>
-                                <strong>Main:</strong> {{ guest.main }}<br>
-                                <strong>Dessert:</strong> {{ guest.dessert }}<br>
-                              </p>
-                              <a href="{{ url_for('edit_guest', guest_id=guest._id) }}" class="btn btn-info btn-sm">Edit Guest</a>
-                              <a href="#delete-guest-{{ guest._id }}" data-toggle="modal" data-target="#delete-guest-{{ guest._id }}" title="Delete guest" class="btn btn-danger btn-sm">Delete Guest</a>
-                              {% include 'components/modals/delete-guest.html' %}
-                            </div>
                         </div>
-                            {% endfor %}  
-                    
-                        {% endif %}
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     {% endif %} 
 

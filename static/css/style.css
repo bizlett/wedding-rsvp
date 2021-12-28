@@ -188,6 +188,15 @@ i {
   border: none;
 }
 
+.dashboard-container {
+  position: relative;
+  min-height: 80vh;
+}
+
+.dashboard-content {
+  padding-bottom: 5rem; 
+}
+
 /* Authentication */
 
 .pattern {
@@ -212,9 +221,9 @@ i {
 
 /* Footer */
 
-footer {
+/* footer {
   margin-top: 5rem;
-}
+} */
 
 /* Modals */
 
