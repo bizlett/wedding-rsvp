@@ -2,23 +2,27 @@
 {% block content %}
 
     <!-- Jumbotron -->
+    
     <section id="hero-card" class="hero-image">
         <div class="row text-white text-center py-5">
             <div class="col-12 py-5">
-        
-                <!-- Content -->
                 <h1 id="hero-card-title" class="card-title my-4 py-2">We're getting married!</h1>
                 <p class="mb-4 pb-2 px-md-5 mx-md-5">
                     And we'd love you to be a part of it.
                 </p>
+                {% if session.user_id %}
+                <a href="#dates-section" class="btn peach-gradient">Dates & Info</a>
+                <a href="{{ url_for('dashboard', user_id=session['user_id']) }}" class="btn peach-gradient">RSVP</a>
+                {% else %}
                 <a href="#dates-section" class="btn peach-gradient">Dates & Info</a>
                 <a href="{{ url_for('register') }}" class="btn peach-gradient">RSVP</a>
-    
+                {% endif %}
             </div>
         </div>
     </section>
 
     <!-- Dates  -->
+
     <section id="dates-section" class="container">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -112,7 +116,11 @@
                 </p>
             </div>
             <div class="col-md-6 col-sm-12">
+                {% if session.user_id %}
+                <a class="btn peach-gradient" href="{{ url_for('dashboard', user_id=session['user_id']) }}">RSVP now!</a>
+                {% else %}
                 <a class="btn peach-gradient" href="{{ url_for('register') }}">RSVP now!</a>
+                {% endif %}
             </div>
         </div>
     </section>
