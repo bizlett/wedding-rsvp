@@ -260,11 +260,16 @@ i {
     margin-top: -5px;
     z-index: -1; 
   }
-}
 
-@media only screen and (max-width: 600px) {
   .guest-details-button {
     padding: 0.5rem 1.3rem;
     font-size: .64rem;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  #user-dropdown-menu {
+    position: sticky !important;
+  }
+}
+
