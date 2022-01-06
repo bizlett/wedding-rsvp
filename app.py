@@ -127,9 +127,10 @@ def search():
     User can search for guest by name
     """
     user = mongo.db.users.find_one()
-    user_id = user["_id"]
+    user_id = session["user_id"]
     query = request.form.get("query")
     guests = mongo.db.guests.find({
+        "user_id": user_id,
         "$text": {"$search": query}}, allow_partial_results=True)
     count_guests = guests.count()
     return render_template(
