@@ -121,6 +121,19 @@ def dashboard(user_id):
         guests=guests, count_guests=count_guests, user=user)
 
 
+# @app.route('/dashboard/<user_id>')
+# def blank_dashboard(user_id):
+#     """
+#     When user has no guests added yet
+#     Blank dashboard will be displayed
+#     """
+#     guests = mongo.db.guests.find({"user_id": user_id})
+#     count_guests = guests.count()
+#     return render_template("pages/blank-dashboard.html",
+#                            user_id=user_id,
+#                            count_guests=count_guests)
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
@@ -133,9 +146,16 @@ def search():
         "user_id": user_id,
         "$text": {"$search": query}}, allow_partial_results=True)
     count_guests = guests.count()
-    return render_template(
-        "/pages/dashboard.html", user_id=user_id,
-        guests=guests, count_guests=count_guests, user=user)
+
+    if guests.count > 1:
+        return render_template(
+            "/pages/dashboard.html", user_id=user_id, guests=guests,
+            count_guests=count_guests, user=user)
+
+    else:
+        return render_template(
+            "/pages/search-results.html", user_id=user_id,
+            guests=guests, count_guests=count_guests, user=user)
 
 
 @app.route("/add_guest/<user_id>", methods=["GET", "POST"])
@@ -220,15 +240,16 @@ def delete_guest(user_id, guest_id):
     Allows the user to delete a guest
     Redirects the user back to the dashboard
     """
-    # guests = mongo.db.guests.find({"user_id": user_id})
+    guests = mongo.db.guests.find({"user_id": user_id})
     user = mongo.db.users.find_one()
     mongo.db.guests.remove({'_id': ObjectId(guest_id)})
     guest = mongo.db.guests.find_one({"user_id": user_id})
     guest_id = guest["_id"]
-    # count_guests = guests.count()
+    count_guests = guests.count()
     flash("Guest successfully deleted")
     return redirect(url_for(
-        "dashboard", user_id=user_id, guest_id=guest_id, user=user))
+        "dashboard", user_id=user_id, guest_id=guest_id,
+        user=user, count_guests=count_guests))
 
 
 @app.route("/logout")
