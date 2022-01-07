@@ -241,7 +241,7 @@ i {
 
 /* Media Queries */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .hero-image {
     height: 90vh;
     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../images/cropped-us.jpeg) no-repeat center fixed;
@@ -264,6 +264,16 @@ i {
   .guest-details-button {
     padding: 0.5rem 1.3rem;
     font-size: .64rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #hero-card-title {
+    font-size: 3rem;
+  }
+  
+  #hero-card {
+    font-size: 1.5rem;
   }
 }
 
