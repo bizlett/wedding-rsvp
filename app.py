@@ -147,7 +147,7 @@ def search():
         "$text": {"$search": query}}, allow_partial_results=True)
     count_guests = guests.count()
 
-    if guests.count > 1:
+    if guests.count() > 1:
         return render_template(
             "/pages/dashboard.html", user_id=user_id, guests=guests,
             count_guests=count_guests, user=user)
@@ -247,7 +247,7 @@ def delete_guest(user_id, guest_id):
     count_guests = guests.count()
     flash("Guest successfully deleted")
     return redirect(url_for(
-        "dashboard", user_id=user_id, guest_id=guest_id,
+        "dashboard", user_id=user_id,
         user=user, count_guests=count_guests))
 
 
