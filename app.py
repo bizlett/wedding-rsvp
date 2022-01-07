@@ -121,19 +121,6 @@ def dashboard(user_id):
         guests=guests, count_guests=count_guests, user=user)
 
 
-# @app.route('/dashboard/<user_id>')
-# def blank_dashboard(user_id):
-#     """
-#     When user has no guests added yet
-#     Blank dashboard will be displayed
-#     """
-#     guests = mongo.db.guests.find({"user_id": user_id})
-#     count_guests = guests.count()
-#     return render_template("pages/blank-dashboard.html",
-#                            user_id=user_id,
-#                            count_guests=count_guests)
-
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
