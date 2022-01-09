@@ -92,9 +92,11 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 user_id = str(existing_user["_id"])
                 session["user_id"] = str(user_id)
+                session["username"] = existing_user["username"]
                 flash("Hello, {}!".format(request.form.get("username")))
                 return redirect(url_for(
-                    "dashboard", user_id=session["user_id"]))
+                    "dashboard", user_id=session["user_id"],
+                    username=session["username"]))
 
             else:
                 flash("Incorrect Username and/or Password")
@@ -247,6 +249,7 @@ def logout():
     """
     flash("You have been logged out")
     session.pop("user_id")
+    session.pop("username")
     return redirect(url_for("login"))
 
 

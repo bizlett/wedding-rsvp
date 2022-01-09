@@ -35,7 +35,7 @@
                     </a>
                     <div id="user-dropdown-menu" class="dropdown-menu dropdown-menu-right dropdown-default"
                         aria-labelledby="navbarDropdownMenuLink-333">
-                        <a class="dropdown-item disabled profile-name">{{ user.username }}'s Profile</a>
+                        <a class="dropdown-item disabled profile-name">{{ session.username }}'s Profile</a>
                         <a class="dropdown-item" href="{{ url_for('dashboard', user_id=session['user_id']) }}">View
                             RSVP</a>
                         <a class="dropdown-item" href="{{ url_for('add_guest', user_id=session['user_id']) }}">Add
