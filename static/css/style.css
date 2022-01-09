@@ -255,7 +255,7 @@ i {
     z-index: -1; 
   }
 
-  .guest-details-button {
+  .custom-button {
     padding: 0.5rem 1.3rem;
     font-size: .64rem;
   }
