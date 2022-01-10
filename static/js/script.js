@@ -9,4 +9,4 @@ $(document).ready(function () {
     $('.delete-guest-modal').modal(
         {"show": false}
     );
-})
+});
