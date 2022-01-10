@@ -285,7 +285,6 @@ Again, I ran out of time to include this on this iteration. For a future iterati
 * [Balsamic](https://balsamiq.com/wireframes/)
 * [W3C HTML Validation Service](https://validator.w3.org/)
 * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-* [techsini](http://techsini.com/)
 * [MongoDB Atlas](https://www.mongodb.com/)
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 * [PyMongo](https://api.mongodb.com/python/current/tutorial.html)
@@ -301,7 +300,7 @@ Again, I ran out of time to include this on this iteration. For a future iterati
 
 ### **Approach and Tools**
 
-I deployed my website early which meant I was able to test as I go. I also used Chrome dev tools to test after each change to ensure expectations met reality / intended application.
+I deployed my website early which meant I was able to test functionality and design as I go. I made regular use of the terminal in my dev environment to pick up and address issues. Pymongo threw useful WSGI error documents which were helpful in debugging. I also used Chrome dev tools to test after each change to ensure expectations met reality / intended application, in particular making use of the network tool to understand silent errors.
 
 Once I had the structure in place, I began testing across other devices. I checked features and formatting across an iPhone 7 and iPhone 10 as well as using dev tools and resizing the browser to check responsiveness. I also used a [free responsive test tool](http://responsivetesttool.com/). 
 
