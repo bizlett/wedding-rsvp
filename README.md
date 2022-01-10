@@ -122,19 +122,23 @@ If you have any feedback or questions, head over to my GitHub contact details an
 ### **Design Choices**
 
 #### *Fonts*
- 
+I selected my fonts from Google fonts. I chose Pacifico, a decorative font, for the header over the hero image. I opted to keep everyting else clean and pared back with Roboto font. 
 
 #### *Favicon*
 
         
 #### *Colours*
+The colour scheme for this website was inspired by the greens in the hero image and the flowers/foliage I had chosen for my wedding. 
 
+A a simple website, I opted for just one colour in order to focus the user's attention onto the information. The peach gradient button was selected for its contrast to the green, drawing attention to further information for the user. 
+
+To keep the theme simple, I chose not to differentiate between the call to action RSVP button and the rest. 
 
 #### *Structure*
-
+I have used Bootstrap Material Design with a Bootstrap v4.6 to create the overall structure of my website.
 
 #### *Imagery*
-
+The images are all photographs from my personal albums. If this website was being used as a template for someone else's wedding, the user could easily replace the photos with their own.
 
 [Back to Top](#table-of-contents)
 
