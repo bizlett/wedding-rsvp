@@ -180,6 +180,7 @@ I have used [Draw.io](https://draw.io/) to make this flowchart which you can vie
 I have used MongoDB to set up the database for this project with the following collections: 
 
 #### **users:**
+Information is organised so a single user has a unique id (represented in the code as user_id), username and password.
 
 Key        | Value
 -----------|-----------
@@ -188,6 +189,7 @@ username   | String
 password   | String
 
 #### **guests:**
+Information is organised so a guest has a unique id (represented in the code as guest_id) and then all the relevant information gathered from the form attached to them.
 
 Key                     | Value
 ------------------------|-----------
@@ -197,17 +199,20 @@ guest_id                | String
 full_name               | String
 attending_pre_meet      | String
 attending_wedding       | String
+starter                 | String
+main                    | String
+dessert                 | String
 
 #### **food_choices:**
+Information is organised differently in this collection. The menu choices are each included once, each carrying a unique id. There are three options for the starter and four for each of the mains and desserts. This collection is not editable, instead providing the options for the select inputs on the form. I used a loop to iterate over the options in order to populate the options in the input.
 
 Key             | Value
 ----------------|-----------
 _id             | ObjectId
-guest_id        | String
-user_id         | String
 starter         | String
 main            | String
 dessert         | String
+not required    | String
 
 [Back to Top](#table-of-contents)
 
@@ -235,6 +240,19 @@ dessert         | String
 
 ### **Future Features**
 
+This website template could be used for any type of event. The following features could be added:
+
+*Date Cut Off*
+
+I ran out of time to learn about and include this feature on this particular iteration. However, in a future iteration, disabling the edit and add features by a certain date would be beneficial to the site owner. It would also be beneficial to the to user who would still be able to access their information as a reminder.
+
+*Password/username Reset*
+
+Outside of the scope of the learning for this project is the ability to send a password/user reset email for users who have forgotten their login details. This would be a useful feature to have in a future iteration.
+
+*Further collections for website information*
+
+Again, I ran out of time to include this on this iteration. For a future iteration, it would be beneficial for all changeable website information (e.g. dates, addresses, people) to be added into a collection on MongoDB and grabbed using Jinja. This would mean a future user/site owner would only need to edit information on the database and not in the code, safeguarding against accidental changes.   
 
 [Back to Top](#table-of-contents)
 
