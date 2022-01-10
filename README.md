@@ -302,9 +302,9 @@ Again, I ran out of time to include this on this iteration. For a future iterati
 
 I deployed my website early which meant I was able to test functionality and design as I go. I made regular use of the terminal in my dev environment to pick up and address issues. Pymongo threw useful WSGI error documents which were helpful in debugging. I also used Chrome dev tools to test after each change to ensure expectations met reality / intended application, in particular making use of the network tool to understand silent errors.
 
-Once I had the structure in place, I began testing across other devices. I checked features and formatting across an iPhone 7 and iPhone 10 as well as using dev tools and resizing the browser to check responsiveness. I also used a [free responsive test tool](http://responsivetesttool.com/). 
+Once I had the structure in place, I began testing across other devices. I checked features and formatting across an iPhone 7 and iPhone 10 as well as using dev tools and resizing the browser to check responsiveness. I also used a [free responsive test tool](http://responsivetesttool.com/).
 
-Finally, I asked friends and family to test the website on their devices. I asked them to make a note of anything they found unusual or that they thought was wrong. This proved particularly helpful for user stories and when considering future features.
+Finally, I posted the deployed site and repo into the peer-review channel on the CI Slack, requesting feedback and I asked friends and family to test the website on their devices. I asked them to make a note of anything they found unusual or that they thought was wrong. This proved particularly helpful for user stories and when considering future features.
 
 <a></a>
 
@@ -324,35 +324,35 @@ Finally, I asked friends and family to test the website on their devices. I aske
 
 *Issue*
 
-
+The delete guest modal wasn't targeting the right specific guest the user was clicking on. Irrespective of the guest the user clicked on, only the first guest in the collection was being returned.
 
 *Solution*
 
-
+The data attributes weren't aligning between the button and the modal so the modal wasn't receiving a unique guest id everytime. I made sure the data target included the guest id so that it would change everytime, targeting the intended guest.
 
 *Issue*
 
-
+The delete modal was designed as defensive programming, a step between the user clicking the delete guest button and the guest being deleted. However the actual delete button within the delete guest modal wasn't triggering the function. 
 
 *Solution*
 
-
+I had placed a form around the whole modal in order to submit the information. I changed this to just be around the delete button but the issue persisted. The issue was solved by removing the form entirely and replacing the buttons in the html with 'a' tags.
 
 *Issue*
 
-
+When doing a text search for a guest, the function was returning all the results in the database with a partial text match. This meant users were able to see (and edit) other users guests.
 
 *Solution*
 
-
+I originally explored using the MongoDB $filter method as a solution, aiming to filter the results to only return guests with the session user id attached to them. However, I struggled to understand the syntax. In the end I opted for a more simple solution. I added the user_id as an argument into the find() method. This meant results that were returned were only guests tagged with that user's unique id. 
 
 *Issue*
 
-
+I created a dynamic, disabled nav link in the nav bar to display the username of the logged in user. However, regardless of the user logged in, the nav link was only returning the name of the first user in the collection.
 
 *Solution*
 
-
+I realised to be able to show the name of the logged in user in the navbar I'd need to get it from the session in every view for this to work. I looked at Flask context processors to achieve this initally but found a more simple solution. I set the username into session in addition to the user id in the login function. I then made sure to pop the username as well as the user id in the log out function.
 
 [Back to Top](#table-of-contents)
 
