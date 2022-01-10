@@ -84,7 +84,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 
 * To know who will be attending the wedding.
 * To get all guests food options and dietary requirements.
-* To get this information in a timely manner at least 2 weeks before the wedding date - there needs to be a cut off point for editing information.
+* To get this information in a timely manner at least 2 weeks before the wedding date.
 * To have this information in an easily exportable and shareable format.
 * To provide guests with information about the wedding. 
 
@@ -125,7 +125,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 I selected my fonts from Google fonts. I chose Pacifico, a decorative font, for the header over the hero image. I opted to keep everyting else clean and pared back with Roboto font. 
 
 #### *Favicon*
-
+I selected a favicon for the website from [Favicon](https://favicon.io/).
         
 #### *Colours*
 The colour scheme for this website was inspired by the greens in the hero image and the flowers/foliage I had chosen for my wedding. 
@@ -138,7 +138,7 @@ To keep the theme simple, I chose not to differentiate between the call to actio
 I have used Bootstrap Material Design with a Bootstrap v4.6 to create the overall structure of my website.
 
 #### *Imagery*
-The images are all photographs from my personal albums. If this website was being used as a template for someone else's wedding, the user could easily replace the photos with their own.
+The images are all photographs from my personal albums. If this website was being used as a template for someone else's wedding or event, the user could easily replace the photos with their own.
 
 [Back to Top](#table-of-contents)
 
@@ -149,23 +149,23 @@ The images are all photographs from my personal albums. If this website was bein
 ### **Wireframes**
 I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
 
-* [Home]()
-* [Wedding Party]()
-
 #### Desktop Wireframes
 * [Dashboard]()
-* [Add Guest]()
-* [Add Food Choices]()
+* [Home]()
+* [Wedding Party]()
+* [Add/edit Guest]()
 
 #### Tablet Wireframes
 * [Dashboard]()
-* [Add Guest]()
-* [Add Food Choices]()
+* [Home]()
+* [Wedding Party]()
+* [Add/edit Guest]()
 
 #### Mobile Wireframes
 * [Dashboard]()
-* [Add Guest]()
-* [Add Food Choices]()
+* [Home]()
+* [Wedding Party]()
+* [Add/edit Guest]()
 
 ### **Flowcharts**
 
@@ -478,6 +478,7 @@ To clone the project:
 <a></a>
 
 ### **Media**
+
 
 
 <a></a>
