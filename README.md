@@ -505,7 +505,7 @@ To clone the project:
 
 ### **Code**
 
-* JavaScript to remove blank options in select options - [StackOverflow](stackoverflow - https://stackoverflow.com/questions/26009589/remove-blank-option-tag-from-select-list)
+* JavaScript to remove blank options in select options - [StackOverflow](https://stackoverflow.com/questions/26009589/remove-blank-option-tag-from-select-list)
 
 <a></a>
 
