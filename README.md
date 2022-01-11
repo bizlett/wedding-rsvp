@@ -1,6 +1,6 @@
 # **Wedding Website RSVP**
 
-![Mock up]()
+![Mock up](wireframes/mock-up.png)
 
 
 ## **Goal for this project**
@@ -32,11 +32,10 @@ If you have any feedback or questions, head over to my GitHub contact details an
         * [Colours](#colours)
         * [Structure](#structure)
         * [Imagery](#imagery)
-* [Wireframes and Flowcharts](#wireframes-and-flowcharts)
+* [Wireframes](#wireframes)
     * [Wireframes](#wireframes)
-    * [Flowcharts](#flowcharts)
     * [Database Structure](#database-structure)
-* [Features](#features)
+* [Roadmap](#roadmap)
     * [Existing Features](#existing-features)
     * [Future Features](#future-features)
 * [Technologies used](#technologies-used)
@@ -144,36 +143,30 @@ The images are all photographs from my personal albums. If this website was bein
 
 ---
 
-## **Wireframes and Flowcharts**
+## **Wireframes**
 
 ### **Wireframes**
-I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
+I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. The design of the website evolved as I began to understand how I could achieve what I was aiming for. The forms element in particular changed a lot as I learned more about using Flask.
+
+I had originally envisioned providing the guest with a specific key that enabled them to access a record that was specifically theirs where they could edit their invitation. As demonstrated in the wireframes this would be accessed through a single RSVP form. A separate form would be used for the food choices - originally I designed a multi-step form using SmartWizard. However, I realised this was not an effective way to serve the user and site owner goals and the CRUD functions would be limited.
+
+I made a significant change, ditching the multi-step food choices form and separate RSVP and redesigning a single guest details form that could be used to add or edit a guest. This would be accessible to a user after they had created an account and logged in. The RSVP login form I had originally envisioned was replaced by a standard register/login form. 
+
+The single page website design has had a minor change to the navbar but otherwise the structure remains the same. 
 
 #### Desktop Wireframes
-* [Dashboard]()
-* [Home]()
-* [Wedding Party]()
-* [Add/edit Guest]()
+* [Desktop](wireframes/desktop.png)
 
 #### Tablet Wireframes
-* [Dashboard]()
-* [Home]()
-* [Wedding Party]()
-* [Add/edit Guest]()
+* [Tablet](wireframes/tablet.png)
 
 #### Mobile Wireframes
-* [Dashboard]()
-* [Home]()
-* [Wedding Party]()
-* [Add/edit Guest]()
+* [Mobile](wireframes/mobile.png)
 
-### **Flowcharts**
-
-I have decided to make a flowchart for the RSVP proccess to completely understand each step of the process.  
-
-I have used [Draw.io](https://draw.io/) to make this flowchart which you can view below: 
-
-[Flowchart]()
+#### Form Wireframes
+* [RSVP Form](wireframes/rsvp-form.png)
+* [Food Options Form](wireframes/menu.png)
+* [Food Options Form (Mobile)](wireframes/menu-mobile.png)
 
 ### **Database Structure**
 
@@ -220,21 +213,59 @@ not required    | String
 
 <a></a>
 
-## **Features**
+## **Roadmap**
 
 <a></a>
 
 ### **Existing Features**
 
 * Register functionality
+
+I created a form where the user can choose a username and a password. 
+
+I have used the pattern attribute to only allow certain characters for the username and password. 
+Correct feedback will be displayed whenever the user doesn't meet the pattern critera. 
+
+Before creating the new account, the function will check in the database if the username already exists. If so, correct feedback will be displayed to the user so they can choose another username. 
+
+The password will be stored with the help of the password generate hash so it is stored safely.
+After the registration was succesfull, the user is redirected to the add guest form to add their first guest. 
+
+In case the user wrongfully clicked on register instead of log in, a link to the log in page is provided so the user doesn't have to go back. 
+
+I have also implemented a 'Go back to the homepage' link so the user doesn't have to use the back button of the browser in case they want to go back to the homepage.
+
+I have used a variable (register) to make the difference between the register and sign-in form.
+When register is equal to True, text for the register form is displayed. Otherwise, text for the login form is displayed. This means I have just one form for the register and log in functionality. 
+
 * Log in and out functionality
+
+After signing in, the user will be redirected to the dashboard where the user can see any guest information they have added.
+
+In case the user doesn't have any guests added to their profile, the user will be redirected to the blank dashboard where card notes a call to action to add a guest.
+
+I created a form where the user can fill in its username and password which will be verified with the information stored in the database. 
+
+When the wrong information is being filled in, the correct feedback will be provided to the user. 
+In case the user wrongfully clicked on sign-in instead of register, a link to the register page is provided so the user doesn't have to go back. 
+
+I have also implemented a 'Go back to the homepage' link so the user doesn't have to use the back button of the browser in case rthey want to go back to the homepage.
+
 * Add multiple guests per user 
+
+I have created a form with the various input fields where the user can fill in the information to add a new guest. The form is accessed via the 'add guest' button on the dashboard or via the nav link in the dropdown nav bar. There is no limit to the number of guests a user can add.
+
+I have also added a cancel button that allows the user to go back to the dashboard in case the user doesn't want to proceed. 
+
 * CRUD Functions:
     * Create: add various guests RSVPs with food choices unique to them
-    * Read: dashboard where you can view the guest information you've submitted
-    * Update: edit the guest information you've submitted
-    * Delete: delete the guest information you've submitted
+    * Read: dashboard where you can view the guest information you've submitted.Each individual guest is displayed as a single card.
+    * Update: edit the guest information you've submitted. Users can edit a guest via the 'edit guest' button on the guest card.
+    * Delete: delete the guest information you've submitted. YThe user can delete a guest via the 'delete guest' button on the guest card. The button triggers a defensive modal that doublechecks if the user wishes to delete the guest. If yes, the delete button within the modal will delete the guest from the database.
+
 * Search guests by name
+
+The user can search for any guest they have added by name. The search function works on text query and user id to return only guests associated with that user. 
 
 <a></a>
 
@@ -252,7 +283,7 @@ Outside of the scope of the learning for this project is the ability to send a p
 
 *Further collections for website information*
 
-Again, I ran out of time to include this on this iteration. For a future iteration, it would be beneficial for all changeable website information (e.g. dates, addresses, people) to be added into a collection on MongoDB and grabbed using Jinja. This would mean a future user/site owner would only need to edit information on the database and not in the code, safeguarding against accidental changes.   
+Again, I ran out of time to include this on this iteration. For a future iteration, it would be beneficial for all changeable website information (e.g. dates, addresses, general content etc.) to be added into a collection on MongoDB. This would mean a future user/site owner would only need to edit information on the database and not in the code, safeguarding against accidental changes.   
 
 [Back to Top](#table-of-contents)
 
@@ -474,16 +505,20 @@ To clone the project:
 
 ### **Code**
 
+* JavaScript to remove blank options in select options - [StackOverflow](stackoverflow - https://stackoverflow.com/questions/26009589/remove-blank-option-tag-from-select-list)
 
 <a></a>
 
 ### **Media**
 
-
+* [Cross-Jones Photography](https://www.crossjonesphotography.com/)
 
 <a></a>
 
 ### **Acknowledgements**
 
+* [Simen Dahlin](https://github.com/Eventyret) for his support in creating this website
+* Student support for being such superstars exploring issues with me, then supporting me to find solutions
+* Code Institute Slack Community
 
 [Back to Top](#table-of-contents)
