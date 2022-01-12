@@ -1,6 +1,6 @@
 # **Wedding Website RSVP**
 
-![Mock up](wireframes/mock-up.png)
+![Mock up](readme/mock-up.png)
 
 
 ## **Goal for this project**
@@ -36,6 +36,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
     * [Wireframes](#wireframes)
     * [Database Structure](#database-structure)
 * [Roadmap](#roadmap)
+    * [Functionality](#functionality)
     * [Existing Features](#existing-features)
     * [Future Features](#future-features)
 * [Technologies used](#technologies-used)
@@ -217,45 +218,31 @@ not required    | String
 
 <a></a>
 
-### **Existing Features**
+### **Functionality**
 
 * Register functionality
 
-I created a form where the user can choose a username and a password. 
+I created a form where the user can choose a username and a password. I have used the pattern attribute to only allow certain characters for the username and password. Feedback is displayed whenever the user doesn't meet the pattern critera. 
 
-I have used the pattern attribute to only allow certain characters for the username and password. 
-Correct feedback will be displayed whenever the user doesn't meet the pattern critera. 
+Before creating the new account, the function will check in the database if the username already exists. If so, feedback will be displayed to the user so they can choose another username. The password is stored with the help of the password generate hash so it is stored safely. After the registration is succesful, the user is redirected to the add guest form to add their first guest. 
 
-Before creating the new account, the function will check in the database if the username already exists. If so, correct feedback will be displayed to the user so they can choose another username. 
+In case the user mistakenly clicks on register instead of log in, a link to the log in page is provided so the user doesn't have to go back. 
 
-The password will be stored with the help of the password generate hash so it is stored safely.
-After the registration was succesfull, the user is redirected to the add guest form to add their first guest. 
+I have also included a 'Go back to the homepage' link so the user doesn't have to use the back button of the browser in case they want to go back to the homepage.
 
-In case the user wrongfully clicked on register instead of log in, a link to the log in page is provided so the user doesn't have to go back. 
-
-I have also implemented a 'Go back to the homepage' link so the user doesn't have to use the back button of the browser in case they want to go back to the homepage.
-
-I have used a variable (register) to make the difference between the register and sign-in form.
-When register is equal to True, text for the register form is displayed. Otherwise, text for the login form is displayed. This means I have just one form for the register and log in functionality. 
+I have used a variable (register) to make the difference between the register and sign-in form. When register is equal to True, text for the register form is displayed. Otherwise, text for the login form is displayed. This means I have just one form for the register and log in functionality. 
 
 * Log in and out functionality
 
-After signing in, the user will be redirected to the dashboard where the user can see any guest information they have added.
+After signing in, the user is redirected to the dashboard where the user can see any guest information they have added. If the user doesn't have any guests added to their profile, they will be redirected to the blank dashboard where a card notes a call to action to add a guest. If they have guests, these are displayed on single cards so the user can quickly the information.
 
-In case the user doesn't have any guests added to their profile, the user will be redirected to the blank dashboard where card notes a call to action to add a guest.
-
-I created a form where the user can fill in its username and password which will be verified with the information stored in the database. 
-
-When the wrong information is being filled in, the correct feedback will be provided to the user. 
-In case the user wrongfully clicked on sign-in instead of register, a link to the register page is provided so the user doesn't have to go back. 
-
-I have also implemented a 'Go back to the homepage' link so the user doesn't have to use the back button of the browser in case rthey want to go back to the homepage.
+After logging out, the user is redirected back to the login page.
 
 * Add multiple guests per user 
 
 I have created a form with the various input fields where the user can fill in the information to add a new guest. The form is accessed via the 'add guest' button on the dashboard or via the nav link in the dropdown nav bar. There is no limit to the number of guests a user can add.
 
-I have also added a cancel button that allows the user to go back to the dashboard in case the user doesn't want to proceed. 
+I have also added a cancel button that allows the user to go back to the dashboard in case the user changes their mind.
 
 * CRUD Functions:
     * Create: add various guests RSVPs with food choices unique to them
@@ -266,6 +253,82 @@ I have also added a cancel button that allows the user to go back to the dashboa
 * Search guests by name
 
 The user can search for any guest they have added by name. The search function works on text query and user id to return only guests associated with that user. 
+
+<a></a>
+
+### **Existing Features**
+
+*Navigation*
+
+![screenshot of nav bar - logged out](readme/navbar-logged-out.png)
+
+![screenshot of nav bar - logged in](readme/navbar-logged-in.png)
+
+I opted for a slightly transparent nav bar that is the same colour as the wider theme across the page. The transparency gives it a bit of differentiation across the background when you scroll down, but does not impede the image. 
+
+Hitting the heart icon returns you to the home page and information. Dates and Info nav links take you to the relevant section further down the page. The wedding party link takes you to a new page detailing all the bride and groom family members. The nav remains at the top of the page so that the user can easily navigate back. 
+
+In this iteration, I've included a demo dropdown to demonstrate a custom error page that would appear in the event of a 404 or 500 error.
+
+To the right of the nav bar, the user can opt to log in. The link redirects the user to the login form. 
+
+Once a user is in session the nav bar changes slightly. The log in is replaced by a user icon dropdown which features a disabled nav link displaying the user name and options to view RSVP (directs user to their personal dashboard), add guest (directs user to the add guest form) and log out (ends the user session, pops the username from the nav bar and redirects the user to the log in page)
+
+The navbar is fully responsive, switching to a right aligned burger menu at mobile breakpoint, leaving the heart icon which redirects to the home page on the left.
+
+*Hero Image*
+
+![screenshot of hero](readme/hero.png)
+
+I opted for a 100% width hero image and slightly transparent nav bar in the same colour as the wider theme for a minimalist feel. I added a gradient to the image to bring the brightness down a notch and make the text pop.
+
+I wrote a statement to immediately describe what the website is about ("We're getting married!") and used an eye-grabbing handwriting style font to give it a personal feel. The sentence beneath ("And we'd love you to be a part of it") is a clear indicator to the user the purpose of the website.
+
+Call to action buttons to see information about the event and to RSVP are included in a strong contrasting peach gradient.
+
+The hero image and buttons are responsive. Media queries have been included to realign text and use re-cropped images at specfic break point. The call to action buttons on the hero also redirect the user to different places dependent on whether the user is logged in or not.
+
+*Dates*
+
+![screenshot of dates section](readme/dates.png)
+
+The dates section is short but sweet. Information is clearly displayed, white text on plain green background creates good contrast. The user has the option to hit a 'more info' button to trigger a modal which offers further details. A media query shifts the side by side columns to a block display at a certain breakpoint. 
+
+*Info*
+
+![screenshot of info section](readme/info.png)
+
+The information section offers the user a quick look at basic information indicated by the use of icons - addresses for both events, suggested accommodation and gifts. The snapshot information segways nicely into a button linking through to introductions of the wedding party as further information. This can also be reached via the nav bar.
+
+*What are you waiting for?*
+
+![screenshot of what are you waiting for section](readme/rsvp.png)
+
+The last section of this website is a reminder of the call to action for the user and a quick link for them to rsvp. If the user isn't logged in, the button links to the register page. If the user is logged in the button directs them to their dashboard.
+
+*Dashboard*
+
+![screenshot of dashboard no guests](readme/dashboard-no-guests.png)
+
+![screenshot of dashboard with guests](readme/dashboard-with-guests.png)
+
+Once the user is logged in, they have access to their own personal dashboard where they can add or edit guests and view their RSVP. If there are no guests added, the dashboard displays a simple card encouraging the user to add a guest to get started.
+
+If the user has guests, each guest and their information is displayed on a single card with the controls to edit or delete them within the card. The edit button redirects the user to th
+
+The user will also have access to dashboard controls which feature an 'add guest' button. The user can also add a guest via a nav link in the user icon nav dropdown in the main nav bar. 
+
+*Dashboard Controls*
+
+![screenshot of dashboard controls](readme/dashboard-controls.png)
+
+The dashboard controls become accessible to the user once they have added a guest. The user will be be able to search for a guest using text search, add a guest using a button or view all guests associated with their account.
+
+*Footer*
+
+![screenshot of footer](readme/footer.png)
+
+The footer is very simple, featuring direct contact details for the site owner.
 
 <a></a>
 
