@@ -310,7 +310,7 @@ The last section of this website is a reminder of the call to action for the use
 
 ![screenshot of dashboard no guests](readme/dashboard-no-guests.png)
 
-![screenshot of dashboard with guests](readme/dashboard-with-guests.png)
+![screenshot of dashboard with guests](readme/dashboard-guests.png)
 
 Once the user is logged in, they have access to their own personal dashboard where they can add or edit guests and view their RSVP. If there are no guests added, the dashboard displays a simple card encouraging the user to add a guest to get started.
 
